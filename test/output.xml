@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.8 on win32)" generated="20221110 19:45:06.011" rpa="false" schemaversion="3">
+<suite id="s1" name="CrawlerA1Test" source="C:\Users\mateo\Desktop\Taller de Proyecto II\crawler-bot-main\test\CrawlerA1Test.robot">
+<test id="s1-t1" name="AdminEs __init__" line="11">
+<kw name="Get Library Instance" library="BuiltIn">
+<var>${admines}</var>
+<arg>AdminES</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<msg timestamp="20221110 19:45:14.714" level="INFO">${admines} = &lt;AdminES.AdminES object at 0x0000012A07A2C070&gt;</msg>
+<status status="PASS" starttime="20221110 19:45:10.670" endtime="20221110 19:45:14.714"/>
+</kw>
+<kw name="Verificar Pines" library="keywords">
+<arg>${admines}</arg>
+<kw name="Set Variable" library="BuiltIn">
+<var>${pin_servo1}</var>
+<arg>23</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221110 19:45:14.724" level="INFO">${pin_servo1} = 23</msg>
+<status status="PASS" starttime="20221110 19:45:14.723" endtime="20221110 19:45:14.725"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${pin_servo2}</var>
+<arg>24</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221110 19:45:14.728" level="INFO">${pin_servo2} = 24</msg>
+<status status="PASS" starttime="20221110 19:45:14.726" endtime="20221110 19:45:14.728"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${pin_encoder1}</var>
+<arg>20</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221110 19:45:14.732" level="INFO">${pin_encoder1} = 20</msg>
+<status status="PASS" starttime="20221110 19:45:14.729" endtime="20221110 19:45:14.732"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${pin_encoder2}</var>
+<arg>21</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221110 19:45:14.733" level="INFO">${pin_encoder2} = 21</msg>
+<status status="PASS" starttime="20221110 19:45:14.733" endtime="20221110 19:45:14.733"/>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<arg>${admines.pin_servo1}</arg>
+<arg>${pin_servo1}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<msg timestamp="20221110 19:45:14.737" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221110 19:45:14.734" endtime="20221110 19:45:14.738"/>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<arg>${admines.pin_servo2}</arg>
+<arg>${pin_servo2}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<msg timestamp="20221110 19:45:14.743" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221110 19:45:14.739" endtime="20221110 19:45:14.743"/>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<arg>${admines.pin_encoder1}</arg>
+<arg>${pin_encoder1}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<msg timestamp="20221110 19:45:14.747" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221110 19:45:14.744" endtime="20221110 19:45:14.747"/>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<arg>${admines.pin_encoder2}</arg>
+<arg>${pin_encoder2}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<msg timestamp="20221110 19:45:14.750" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221110 19:45:14.747" endtime="20221110 19:45:14.750"/>
+</kw>
+<status status="PASS" starttime="20221110 19:45:14.714" endtime="20221110 19:45:14.750"/>
+</kw>
+<doc>Testeo al constructor de la clase AdminES</doc>
+<status status="PASS" starttime="20221110 19:45:10.666" endtime="20221110 19:45:14.753"/>
+</test>
+<test id="s1-t2" name="AdminES mover_servo" line="15">
+<kw name="Get Library Instance" library="BuiltIn">
+<var>${admines}</var>
+<arg>AdminES</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<msg timestamp="20221110 19:45:18.814" level="INFO">${admines} = &lt;AdminES.AdminES object at 0x0000012A07A2E3B0&gt;</msg>
+<status status="PASS" starttime="20221110 19:45:14.762" endtime="20221110 19:45:18.814"/>
+</kw>
+<kw name="Verificar Calculo Angulo" library="keywords">
+<arg>${admines}</arg>
+<arg>${40}</arg>
+<arg>${24}</arg>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${ns}</var>
+<arg>x=${2000}</arg>
+<arg>y=${180}</arg>
+<arg>z=${500}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20221110 19:45:18.847" level="INFO">${ns} = {'x': 2000, 'y': 180, 'z': 500}</msg>
+<status status="PASS" starttime="20221110 19:45:18.828" endtime="20221110 19:45:18.848"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${ancho}</var>
+<arg>${angulo}*x/y + z</arg>
+<arg>namespace=${ns}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20221110 19:45:18.853" level="INFO">${ancho} = 944.4444444444445</msg>
+<status status="PASS" starttime="20221110 19:45:18.849" endtime="20221110 19:45:18.854"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${admines}</arg>
+<arg>mover_servo</arg>
+<arg>${pin}</arg>
+<arg>${angulo}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20221110 19:45:18.856" endtime="20221110 19:45:19.170"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${admines.ancho}</arg>
+<arg>${ancho}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" starttime="20221110 19:45:19.170" endtime="20221110 19:45:19.170"/>
+</kw>
+<status status="PASS" starttime="20221110 19:45:18.814" endtime="20221110 19:45:19.170"/>
+</kw>
+<kw name="Verificar Calculo Angulo" library="keywords">
+<arg>${admines}</arg>
+<arg>${0}</arg>
+<arg>${24}</arg>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${ns}</var>
+<arg>x=${2000}</arg>
+<arg>y=${180}</arg>
+<arg>z=${500}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20221110 19:45:19.198" level="INFO">${ns} = {'x': 2000, 'y': 180, 'z': 500}</msg>
+<status status="PASS" starttime="20221110 19:45:19.191" endtime="20221110 19:45:19.199"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${ancho}</var>
+<arg>${angulo}*x/y + z</arg>
+<arg>namespace=${ns}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20221110 19:45:19.201" level="INFO">${ancho} = 500.0</msg>
+<status status="PASS" starttime="20221110 19:45:19.199" endtime="20221110 19:45:19.201"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${admines}</arg>
+<arg>mover_servo</arg>
+<arg>${pin}</arg>
+<arg>${angulo}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20221110 19:45:19.201" endtime="20221110 19:45:19.512"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${admines.ancho}</arg>
+<arg>${ancho}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" starttime="20221110 19:45:19.512" endtime="20221110 19:45:19.512"/>
+</kw>
+<status status="PASS" starttime="20221110 19:45:19.170" endtime="20221110 19:45:19.512"/>
+</kw>
+<kw name="Verificar Calculo Angulo" library="keywords">
+<arg>${admines}</arg>
+<arg>${40}</arg>
+<arg>${23}</arg>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${ns}</var>
+<arg>x=${2000}</arg>
+<arg>y=${180}</arg>
+<arg>z=${500}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20221110 19:45:19.550" level="INFO">${ns} = {'x': 2000, 'y': 180, 'z': 500}</msg>
+<status status="PASS" starttime="20221110 19:45:19.535" endtime="20221110 19:45:19.550"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${ancho}</var>
+<arg>${angulo}*x/y + z</arg>
+<arg>namespace=${ns}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20221110 19:45:19.554" level="INFO">${ancho} = 944.4444444444445</msg>
+<status status="PASS" starttime="20221110 19:45:19.551" endtime="20221110 19:45:19.554"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${admines}</arg>
+<arg>mover_servo</arg>
+<arg>${pin}</arg>
+<arg>${angulo}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20221110 19:45:19.554" endtime="20221110 19:45:19.870"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${admines.ancho}</arg>
+<arg>${ancho}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" starttime="20221110 19:45:19.870" endtime="20221110 19:45:19.870"/>
+</kw>
+<status status="PASS" starttime="20221110 19:45:19.512" endtime="20221110 19:45:19.870"/>
+</kw>
+<kw name="Verificar Calculo Angulo" library="keywords">
+<arg>${admines}</arg>
+<arg>${0}</arg>
+<arg>${23}</arg>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${ns}</var>
+<arg>x=${2000}</arg>
+<arg>y=${180}</arg>
+<arg>z=${500}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20221110 19:45:19.909" level="INFO">${ns} = {'x': 2000, 'y': 180, 'z': 500}</msg>
+<status status="PASS" starttime="20221110 19:45:19.892" endtime="20221110 19:45:19.909"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${ancho}</var>
+<arg>${angulo}*x/y + z</arg>
+<arg>namespace=${ns}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20221110 19:45:19.910" level="INFO">${ancho} = 500.0</msg>
+<status status="PASS" starttime="20221110 19:45:19.909" endtime="20221110 19:45:19.910"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${admines}</arg>
+<arg>mover_servo</arg>
+<arg>${pin}</arg>
+<arg>${angulo}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20221110 19:45:19.910" endtime="20221110 19:45:20.225"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${admines.ancho}</arg>
+<arg>${ancho}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" starttime="20221110 19:45:20.225" endtime="20221110 19:45:20.225"/>
+</kw>
+<status status="PASS" starttime="20221110 19:45:19.870" endtime="20221110 19:45:20.225"/>
+</kw>
+<kw name="Verificar Tiempo Sleep" library="keywords">
+<arg>${admines}</arg>
+<arg>${40}</arg>
+<arg>${24}</arg>
+<kw name="Get Current Date" library="DateTime">
+<var>${tiempo_inicio}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20221110 19:45:20.248" level="INFO">${tiempo_inicio} = 2022-11-10 19:45:20.248</msg>
+<status status="PASS" starttime="20221110 19:45:20.247" endtime="20221110 19:45:20.249"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${admines}</arg>
+<arg>mover_servo</arg>
+<arg>${pin}</arg>
+<arg>${angulo}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20221110 19:45:20.249" endtime="20221110 19:45:20.562"/>
+</kw>
+<kw name="Get Current Date" library="DateTime">
+<var>${tiempo_final}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20221110 19:45:20.562" level="INFO">${tiempo_final} = 2022-11-10 19:45:20.562</msg>
+<status status="PASS" starttime="20221110 19:45:20.562" endtime="20221110 19:45:20.562"/>
+</kw>
+<kw name="Subtract Date From Date" library="DateTime">
+<var>${tiempoMs}</var>
+<arg>${tiempo_final}</arg>
+<arg>${tiempo_inicio}</arg>
+<arg>result_format=number</arg>
+<doc>Subtracts date from another date and returns time between.</doc>
+<msg timestamp="20221110 19:45:20.578" level="INFO">${tiempoMs} = 0.314</msg>
+<status status="PASS" starttime="20221110 19:45:20.562" endtime="20221110 19:45:20.578"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${resultado}</var>
+<arg>${tiempoMs} &gt;= 0.3</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20221110 19:45:20.578" level="INFO">${resultado} = True</msg>
+<status status="PASS" starttime="20221110 19:45:20.578" endtime="20221110 19:45:20.578"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${resultado}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20221110 19:45:20.594" endtime="20221110 19:45:20.594"/>
+</kw>
+<status status="PASS" starttime="20221110 19:45:20.225" endtime="20221110 19:45:20.594"/>
+</kw>
+<doc>Testeo al metodo mover servo de la clase AdminES. Se testean distintos angulos de giro y pines y ademas el sleep de la funcion</doc>
+<status status="PASS" starttime="20221110 19:45:14.758" endtime="20221110 19:45:20.594"/>
+</test>
+<doc>Testeo al codigo de Crawler A1</doc>
+<status status="PASS" starttime="20221110 19:45:06.026" endtime="20221110 19:45:20.600"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="CrawlerA1Test">CrawlerA1Test</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20221110 19:45:10.573" level="ERROR">Error in file 'C:\Users\mateo\Desktop\Taller de Proyecto II\crawler-bot-main\test\CrawlerA1Test.robot' on line 4: Importing library 'C:\Users\mateo\Desktop\Taller de Proyecto II\crawler-bot-main\python_code\QLearning.py' failed: ModuleNotFoundError: No module named 'python_code'
+Traceback (most recent call last):
+  File "C:\Users\mateo\Desktop\Taller de Proyecto II\crawler-bot-main\python_code\QLearning.py", line 6, in &lt;module&gt;
+    from python_code.robot import Robot
+PYTHONPATH:
+  C:\Users\mateo\Desktop\Taller de Proyecto II\crawler-bot-main\python_code
+  C:\Users\mateo\Desktop\Taller de Proyecto II\crawler-bot-main\test
+  C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\python310.zip
+  C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\DLLs
+  C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\lib
+  C:\Users\mateo\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0
+  C:\Users\mateo\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages
+  C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0
+  C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\lib\site-packages</msg>
+</errors>
+</robot>

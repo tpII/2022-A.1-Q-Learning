@@ -1,0 +1,46 @@
+{% extends './layout.html' %}
+
+{% block title %} {{ data.titulo }} {% endblock %}
+
+{% block css_imports%}
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/404.css') }}">
+{% endblock %}
+
+{% block body %}
+	<div class="header">
+		<h1> Crawler-bot </h1>
+		<img src="static/images/Logo.png" class="logo">
+	</div>
+	<div class="main_div">
+		<div class="centrado">
+			<div class="vertical">
+				<h1>¡ERROR 404!</h1>
+				<h2>No existe la página</h2>
+				<h3>La página no fue encontrada</h3>
+				<a class="boton_inicio detener_button zoom_button" href="{{ url_for ('index') }}">Inicio</a>
+			</div>
+		</div>
+	</div>
+	<div class="animateme">
+		  <ul class="bg-bubbles">
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		  </ul>
+		</div>
+{% endblock %}
+
+{% block js_imports %}
+	<!-- No requiere Javascript -->
+{% endblock %}
+
