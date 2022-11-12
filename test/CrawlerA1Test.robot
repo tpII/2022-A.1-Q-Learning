@@ -1,7 +1,7 @@
 *** Settings ***
 | Documentation      | Testeo al codigo de Crawler A1
 | Library            | ../python_code/AdminES.py 
-| Library            | ../python_code/QLearning.py
+| Library            | ../python_code/QLearning.py     | ${app}
 | Resource           | keywords.resource
 
 *** Variables ***
@@ -20,3 +20,17 @@
 |                     | Verificar Calculo Angulo    | ${admines}    | ${0}    | ${23}
 |                     | Verificar Tiempo Sleep      | ${admines}    | ${40}    | ${24}
 
+*** Test Cases ***
+| QLearning set_params          | [Documentation] | Testeo al set_params de la clase Qlearning
+|                               | ${qlearning}=         | Get Library Instance        | QLearning
+|                               | Verificar Seteo De Parametros   | ${qlearning}      |
+
+*** Test Cases ***
+| QLearning set_default_params  | [Documentation] | Testeo al set_default_params de la clase Qlearning
+|                               | ${qlearning}=         | Get Library Instance                   | QLearning
+|                               | Verificar Seteo De Parametros Por Default  | ${qlearning}      | 
+
+*** Test Cases ***
+| QLearning get_params          | [Documentation] | Testeo al get_params de la clase Qlearning
+|                               | ${qlearning}=         | Get Library Instance                    | QLearning
+|                               | Verificar Obtencion De Parametros           | ${qlearning}      | 

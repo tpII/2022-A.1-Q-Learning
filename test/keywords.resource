@@ -29,3 +29,78 @@
 |                    | ${tiempoMs}=      | Subtract Date From Date    | ${tiempo_final}    | ${tiempo_inicio}    | result_format=number
 |                    | ${resultado}=     | Evaluate    | ${tiempoMs} >= 0.3
 |                    | Should Be True    | ${resultado}
+
+
+	
+| Verificar Seteo De Parametros
+|                    | [Arguments]    | ${qlearning}
+|                    | ${learning_rate}=    | Set variable        | 0.4
+|                    | ${discount}=         | Set variable        | 0.9
+|                    | ${epsilon}=          | Set variable        | 0.9
+|                    | ${learning_epsilon}= | Set variable        | 0.002
+|                    | ${min_epsilon}=      | Set variable        | 0.15
+|                    | ${max_movements}=    | Set variable        | 15
+|                    | ${win_reward}=       | Set variable        | 4
+|                    | ${loss_reward}=      | Set variable        | -4
+|                    | ${dead_reward}=      | Set variable        | -4
+|                    | ${loop_reward}=      | Set variable        | -4
+|                    | Call Method    | ${qlearning}    | set_params      | ${learning_rate}| ${discount}   | ${epsilon}    | ${learning_epsilon}    | ${min_epsilon}    | ${max_movements}    | ${win_reward}    | ${loss_reward}    | ${dead_reward}   | ${dead_reward}    | ${loop_reward}
+|                    | Should Be Equal    | ${qlearning.LEARNING_RATE}    | ${learning_rate}
+|                    | Should Be Equal    | ${qlearning.DISCOUNT}         | ${discount}
+|                    | Should Be Equal    | ${qlearning.EPSILON}          | ${epsilon}
+|                    | Should Be Equal    | ${qlearning.LEARNING_EPSILON} | ${learning_epsilon}
+|                    | Should Be Equal    | ${qlearning.MIN_EPSILON}      | ${min_epsilon}
+|                    | Should Be Equal    | ${qlearning.MAX_MOVEMENTS}    | ${max_movements}
+|                    | Should Be Equal    | ${qlearning.WIN_REWARD}       | ${win_reward}
+|                    | Should Be Equal    | ${qlearning.LOSS_REWARD}      | ${loss_reward}
+|                    | Should Be Equal    | ${qlearning.DEAD_REWARD}      | ${dead_reward}
+|                    | Should Be Equal    | ${qlearning.LOOP_REWARD}      | ${loop_reward}
+
+
+ Verificar Seteo De Parametros Por Default
+|                    | [Arguments]    | ${qlearning}
+|                    | ${learning_rate}=    | Set variable        | 0.4
+|                    | ${discount}=         | Set variable        | 0.9
+|                    | ${epsilon}=          | Set variable        | 0.9
+|                    | ${learning_epsilon}= | Set variable        | 0.002
+|                    | ${min_epsilon}=      | Set variable        | 0.15
+|                    | ${max_movements}=    | Set variable        | 15
+|                    | ${win_reward}=       | Set variable        | 4
+|                    | ${loss_reward}=      | Set variable        | -4
+|                    | ${dead_reward}=      | Set variable        | -4
+|                    | ${loop_reward}=      | Set variable        | -4
+|                    | Call Method        | ${qlearning}    | set_default_params      | 
+|                    | Should Be Equal    | ${qlearning.LEARNING_RATE}    | ${learning_rate}
+|                    | Should Be Equal    | ${qlearning.DISCOUNT}         | ${discount}
+|                    | Should Be Equal    | ${qlearning.EPSILON}          | ${epsilon}
+|                    | Should Be Equal    | ${qlearning.LEARNING_EPSILON} | ${learning_epsilon}
+|                    | Should Be Equal    | ${qlearning.MIN_EPSILON}      | ${min_epsilon}
+|                    | Should Be Equal    | ${qlearning.MAX_MOVEMENTS}    | ${max_movements}
+|                    | Should Be Equal    | ${qlearning.WIN_REWARD}       | ${win_reward}
+|                    | Should Be Equal    | ${qlearning.LOSS_REWARD}      | ${loss_reward}
+|                    | Should Be Equal    | ${qlearning.DEAD_REWARD}      | ${dead_reward}
+|                    | Should Be Equal    | ${qlearning.LOOP_REWARD}      | ${loop_reward}
+
+ Verificar Obtencion De Parametros
+|                    | [Arguments]    | ${qlearning}
+|                    | ${learning_rate}=    | Set variable        | 0.4
+|                    | ${discount}=         | Set variable        | 0.9
+|                    | ${epsilon}=          | Set variable        | 0.9
+|                    | ${learning_epsilon}= | Set variable        | 0.002
+|                    | ${min_epsilon}=      | Set variable        | 0.15
+|                    | ${max_movements}=    | Set variable        | 15
+|                    | ${win_reward}=       | Set variable        | 4
+|                    | ${loss_reward}=      | Set variable        | -4
+|                    | ${dead_reward}=      | Set variable        | -4
+|                    | ${loop_reward}=      | Set variable        | -4
+|                    | Call Method    | ${qlearning}              | get_params      | 
+|                    | Should Be Equal    | ${qlearning.LEARNING_RATE}    | ${learning_rate}
+|                    | Should Be Equal    | ${qlearning.DISCOUNT}         | ${discount}
+|                    | Should Be Equal    | ${qlearning.EPSILON}          | ${epsilon}
+|                    | Should Be Equal    | ${qlearning.LEARNING_EPSILON} | ${learning_epsilon}
+|                    | Should Be Equal    | ${qlearning.MIN_EPSILON}      | ${min_epsilon}
+|                    | Should Be Equal    | ${qlearning.MAX_MOVEMENTS}    | ${max_movements}
+|                    | Should Be Equal    | ${qlearning.WIN_REWARD}       | ${win_reward}
+|                    | Should Be Equal    | ${qlearning.LOSS_REWARD}      | ${loss_reward}
+|                    | Should Be Equal    | ${qlearning.DEAD_REWARD}      | ${dead_reward}
+|                    | Should Be Equal    | ${qlearning.LOOP_REWARD}      | ${loop_reward}
