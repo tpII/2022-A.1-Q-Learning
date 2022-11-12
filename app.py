@@ -36,107 +36,108 @@ class QTable(db.Model):
 	def get_by_id(id):
 		return User.query.get(id)
 
-@jsf.use(app)
-class App:
-	'''
-		Clase que modela la aplicación Flask para su utilización con jyserver.
-		Establece los metodos que pueden ser ejecutados a partir de eventos 
-		producidos en la interfaz web como si de javascript se tratara. 
-		De igual manera, permite la ejecución de las funciones de javascript 
-		creadas, accediendo mediante self.js. 
-		Aporta métodos a la vista para la ejecución de las funciones del 
-		algoritmo Q-Learning, así como las del movimiento del robot.
-	'''
-
-	def __init__(self):
+with app.app_context():
+	@jsf.use(app)
+	class App:
 		'''
-			Constructor de la clase App.
-			Almacena una instancia de la clase QLearning y carga una tabla Q
-			desde la base de datos para almacenarla como tabla inicial.
-			Si la entrada no se encuentra creada o la base de datos está vacía se crea
-			dicha entrada y/o se almacena una tabla Q vacía (con todos sus valores en 0).
+			Clase que modela la aplicación Flask para su utilización con jyserver.
+			Establece los metodos que pueden ser ejecutados a partir de eventos 
+			producidos en la interfaz web como si de javascript se tratara. 
+			De igual manera, permite la ejecución de las funciones de javascript 
+			creadas, accediendo mediante self.js. 
+			Aporta métodos a la vista para la ejecución de las funciones del 
+			algoritmo Q-Learning, así como las del movimiento del robot.
 		'''
-		self.Q = QLearning(self)
 
-		# Inicialización de las variables utilizadas para la administración de alertas en la vista
-		self.post_params = False
-		self.alertas = []
-		self.check = 0
+		def __init__(self):
+			'''
+				Constructor de la clase App.
+				Almacena una instancia de la clase QLearning y carga una tabla Q
+				desde la base de datos para almacenarla como tabla inicial.
+				Si la entrada no se encuentra creada o la base de datos está vacía se crea
+				dicha entrada y/o se almacena una tabla Q vacía (con todos sus valores en 0).
+			'''
+			self.Q = QLearning(self)
 
-		# Cargado o inicialización de la base de datos
-		if "qtable" in db.inspect(db.engine).get_table_names(): # Si la tabla existe en la base de datos
-			database = QTable.query.all()
+			# Inicialización de las variables utilizadas para la administración de alertas en la vista
+			self.post_params = False
+			self.alertas = []
+			self.check = 0
 
-			if  not database == []: # Si existe y tiene elementos, toma el último
-				self.entrada_db = database[-1]
-				q_table = self.entrada_db.q_table
-				self.Q.inicializar_q_table(q_table)	
+			# Cargado o inicialización de la base de datos
+			if "qtable" in db.inspect(db.engine).get_table_names(): # Si la tabla existe en la base de datos
+				database = QTable.query.all()
 
-			else: 					# Si existe pero se encuentra vacía, crea una entrada nueva
+				if  not database == []: # Si existe y tiene elementos, toma el último
+					self.entrada_db = database[-1]
+					q_table = self.entrada_db.q_table
+					self.Q.inicializar_q_table(q_table)	
+
+				else: 					# Si existe pero se encuentra vacía, crea una entrada nueva
+					self.Q.inicializar_q_table()
+
+					# print(q_table)
+					self.entrada_db = QTable(q_table=self.Q.q_table)
+					db.session.add(self.entrada_db)
+					db.session.commit()
+			else:						# Si la tabla no existe en la base de datos
+				db.create_all()
 				self.Q.inicializar_q_table()
 
-				# print(q_table)
 				self.entrada_db = QTable(q_table=self.Q.q_table)
 				db.session.add(self.entrada_db)
 				db.session.commit()
-		else:						# Si la tabla no existe en la base de datos
-			db.create_all()
-			self.Q.inicializar_q_table()
 
-			self.entrada_db = QTable(q_table=self.Q.q_table)
-			db.session.add(self.entrada_db)
+
+		def entrenar(self):
+			'''
+				Función que inicia el entrenamiento y guarda la tabla Q que ha 
+				sido generada tras la ejecución del mismo, en la base de datos.
+			'''
+			self.Q.semaforo_done.acquire()
+			self.Q.done = False
+			self.Q.semaforo_done.release()
+
+			q_table = self.Q.entrenar()
+			
+			self.entrada_db.query.update({"q_table" : q_table})
 			db.session.commit()
 
 
-	def entrenar(self):
-		'''
-			Función que inicia el entrenamiento y guarda la tabla Q que ha 
-			sido generada tras la ejecución del mismo, en la base de datos.
-		'''
-		self.Q.semaforo_done.acquire()
-		self.Q.done = False
-		self.Q.semaforo_done.release()
+		def avanzar(self):
+			'''
+				Función que inicia el movimiento del robot utilizando la tabla
+				que se encuentra almacenada en la variable Q. Que puede ser una
+				recientemente entrenada o la cargada inicialmente desde la BD. 
+			'''
+			self.Q.semaforo_done.acquire()
+			self.Q.done = False
+			self.Q.semaforo_done.release()
 
-		q_table = self.Q.entrenar()
-		
-		self.entrada_db.query.update({"q_table" : q_table})
-		db.session.commit()
+			self.Q.avanzar()
 
 
-	def avanzar(self):
-		'''
-			Función que inicia el movimiento del robot utilizando la tabla
-			que se encuentra almacenada en la variable Q. Que puede ser una
-			recientemente entrenada o la cargada inicialmente desde la BD. 
-		'''
-		self.Q.semaforo_done.acquire()
-		self.Q.done = False
-		self.Q.semaforo_done.release()
+		def detener(self):
+			'''
+				Detener la ejecución del entrenamiento o del movimiento segun corresponda.
+			'''
+			self.Q.semaforo_done.acquire()
+			self.Q.done=True
+			self.Q.semaforo_done.release()
+			
 
-		self.Q.avanzar()
+		def reset_table(self):
+			'''
+				Función que resetea toda la tabla Q a 0 en Q,
+				la actualiza en la interfaz y en la base de datos.
+			'''
+			self.Q.inicializar_q_table()
+			q_table = self.Q.q_table
 
+			self.entrada_db.query.update({"q_table" : q_table})
+			db.session.commit()
 
-	def detener(self):
-		'''
-			Detener la ejecución del entrenamiento o del movimiento segun corresponda.
-		'''
-		self.Q.semaforo_done.acquire()
-		self.Q.done=True
-		self.Q.semaforo_done.release()
-		
-
-	def reset_table(self):
-		'''
-			Función que resetea toda la tabla Q a 0 en Q,
-			la actualiza en la interfaz y en la base de datos.
-		'''
-		self.Q.inicializar_q_table()
-		q_table = self.Q.q_table
-
-		self.entrada_db.query.update({"q_table" : q_table})
-		db.session.commit()
-
-		self.js.update_table(list(q_table.flatten()), list(self.Q.robot.reset()))
+			self.js.update_table(list(q_table.flatten()), list(self.Q.robot.reset()))
 
 
 @app.route('/', methods=['GET'])

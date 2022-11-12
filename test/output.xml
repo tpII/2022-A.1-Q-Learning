@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.10.8 on win32)" generated="20221110 19:45:06.011" rpa="false" schemaversion="3">
-<suite id="s1" name="CrawlerA1Test" source="C:\Users\mateo\Desktop\Taller de Proyecto II\crawler-bot-main\test\CrawlerA1Test.robot">
-<test id="s1-t1" name="AdminEs __init__" line="11">
+<robot generator="Robot 6.0.1 (Python 3.8.10 on linux)" generated="20221112 18:02:24.655" rpa="false" schemaversion="3">
+<suite id="s1" name="CrawlerA1Test" source="/home/mateo/Documentos/GitHub/2022-A.1-Q-Learning/test/CrawlerA1Test.robot">
+<test id="s1-t1" name="AdminEs __init__" line="10">
 <kw name="Get Library Instance" library="BuiltIn">
 <var>${admines}</var>
 <arg>AdminES</arg>
 <doc>Returns the currently active instance of the specified library.</doc>
-<msg timestamp="20221110 19:45:14.714" level="INFO">${admines} = &lt;AdminES.AdminES object at 0x0000012A07A2C070&gt;</msg>
-<status status="PASS" starttime="20221110 19:45:10.670" endtime="20221110 19:45:14.714"/>
+<msg timestamp="20221112 18:02:25.220" level="INFO">${admines} = &lt;AdminES.AdminES object at 0x7f582db03820&gt;</msg>
+<status status="PASS" starttime="20221112 18:02:25.219" endtime="20221112 18:02:25.220"/>
 </kw>
 <kw name="Verificar Pines" library="keywords">
 <arg>${admines}</arg>
@@ -15,78 +15,78 @@
 <var>${pin_servo1}</var>
 <arg>23</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20221110 19:45:14.724" level="INFO">${pin_servo1} = 23</msg>
-<status status="PASS" starttime="20221110 19:45:14.723" endtime="20221110 19:45:14.725"/>
+<msg timestamp="20221112 18:02:25.222" level="INFO">${pin_servo1} = 23</msg>
+<status status="PASS" starttime="20221112 18:02:25.222" endtime="20221112 18:02:25.222"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${pin_servo2}</var>
 <arg>24</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20221110 19:45:14.728" level="INFO">${pin_servo2} = 24</msg>
-<status status="PASS" starttime="20221110 19:45:14.726" endtime="20221110 19:45:14.728"/>
+<msg timestamp="20221112 18:02:25.222" level="INFO">${pin_servo2} = 24</msg>
+<status status="PASS" starttime="20221112 18:02:25.222" endtime="20221112 18:02:25.223"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${pin_encoder1}</var>
 <arg>20</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20221110 19:45:14.732" level="INFO">${pin_encoder1} = 20</msg>
-<status status="PASS" starttime="20221110 19:45:14.729" endtime="20221110 19:45:14.732"/>
+<msg timestamp="20221112 18:02:25.223" level="INFO">${pin_encoder1} = 20</msg>
+<status status="PASS" starttime="20221112 18:02:25.223" endtime="20221112 18:02:25.223"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${pin_encoder2}</var>
 <arg>21</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20221110 19:45:14.733" level="INFO">${pin_encoder2} = 21</msg>
-<status status="PASS" starttime="20221110 19:45:14.733" endtime="20221110 19:45:14.733"/>
+<msg timestamp="20221112 18:02:25.224" level="INFO">${pin_encoder2} = 21</msg>
+<status status="PASS" starttime="20221112 18:02:25.223" endtime="20221112 18:02:25.224"/>
 </kw>
 <kw name="Should Be Equal As Integers" library="BuiltIn">
 <arg>${admines.pin_servo1}</arg>
 <arg>${pin_servo1}</arg>
 <doc>Fails if objects are unequal after converting them to integers.</doc>
-<msg timestamp="20221110 19:45:14.737" level="INFO">Argument types are:
+<msg timestamp="20221112 18:02:25.227" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
-<status status="PASS" starttime="20221110 19:45:14.734" endtime="20221110 19:45:14.738"/>
+<status status="PASS" starttime="20221112 18:02:25.224" endtime="20221112 18:02:25.227"/>
 </kw>
 <kw name="Should Be Equal As Integers" library="BuiltIn">
 <arg>${admines.pin_servo2}</arg>
 <arg>${pin_servo2}</arg>
 <doc>Fails if objects are unequal after converting them to integers.</doc>
-<msg timestamp="20221110 19:45:14.743" level="INFO">Argument types are:
+<msg timestamp="20221112 18:02:25.230" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
-<status status="PASS" starttime="20221110 19:45:14.739" endtime="20221110 19:45:14.743"/>
+<status status="PASS" starttime="20221112 18:02:25.228" endtime="20221112 18:02:25.230"/>
 </kw>
 <kw name="Should Be Equal As Integers" library="BuiltIn">
 <arg>${admines.pin_encoder1}</arg>
 <arg>${pin_encoder1}</arg>
 <doc>Fails if objects are unequal after converting them to integers.</doc>
-<msg timestamp="20221110 19:45:14.747" level="INFO">Argument types are:
+<msg timestamp="20221112 18:02:25.233" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
-<status status="PASS" starttime="20221110 19:45:14.744" endtime="20221110 19:45:14.747"/>
+<status status="PASS" starttime="20221112 18:02:25.231" endtime="20221112 18:02:25.233"/>
 </kw>
 <kw name="Should Be Equal As Integers" library="BuiltIn">
 <arg>${admines.pin_encoder2}</arg>
 <arg>${pin_encoder2}</arg>
 <doc>Fails if objects are unequal after converting them to integers.</doc>
-<msg timestamp="20221110 19:45:14.750" level="INFO">Argument types are:
+<msg timestamp="20221112 18:02:25.236" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
-<status status="PASS" starttime="20221110 19:45:14.747" endtime="20221110 19:45:14.750"/>
+<status status="PASS" starttime="20221112 18:02:25.233" endtime="20221112 18:02:25.236"/>
 </kw>
-<status status="PASS" starttime="20221110 19:45:14.714" endtime="20221110 19:45:14.750"/>
+<status status="PASS" starttime="20221112 18:02:25.221" endtime="20221112 18:02:25.237"/>
 </kw>
 <doc>Testeo al constructor de la clase AdminES</doc>
-<status status="PASS" starttime="20221110 19:45:10.666" endtime="20221110 19:45:14.753"/>
+<status status="PASS" starttime="20221112 18:02:25.218" endtime="20221112 18:02:25.237"/>
 </test>
-<test id="s1-t2" name="AdminES mover_servo" line="15">
+<test id="s1-t2" name="AdminES mover_servo" line="14">
 <kw name="Get Library Instance" library="BuiltIn">
 <var>${admines}</var>
 <arg>AdminES</arg>
 <doc>Returns the currently active instance of the specified library.</doc>
-<msg timestamp="20221110 19:45:18.814" level="INFO">${admines} = &lt;AdminES.AdminES object at 0x0000012A07A2E3B0&gt;</msg>
-<status status="PASS" starttime="20221110 19:45:14.762" endtime="20221110 19:45:18.814"/>
+<msg timestamp="20221112 18:02:25.241" level="INFO">${admines} = &lt;AdminES.AdminES object at 0x7f582daff490&gt;</msg>
+<status status="PASS" starttime="20221112 18:02:25.240" endtime="20221112 18:02:25.241"/>
 </kw>
 <kw name="Verificar Calculo Angulo" library="keywords">
 <arg>${admines}</arg>
@@ -98,16 +98,16 @@
 <arg>y=${180}</arg>
 <arg>z=${500}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20221110 19:45:18.847" level="INFO">${ns} = {'x': 2000, 'y': 180, 'z': 500}</msg>
-<status status="PASS" starttime="20221110 19:45:18.828" endtime="20221110 19:45:18.848"/>
+<msg timestamp="20221112 18:02:25.250" level="INFO">${ns} = {'x': 2000, 'y': 180, 'z': 500}</msg>
+<status status="PASS" starttime="20221112 18:02:25.245" endtime="20221112 18:02:25.251"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${ancho}</var>
 <arg>${angulo}*x/y + z</arg>
 <arg>namespace=${ns}</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20221110 19:45:18.853" level="INFO">${ancho} = 944.4444444444445</msg>
-<status status="PASS" starttime="20221110 19:45:18.849" endtime="20221110 19:45:18.854"/>
+<msg timestamp="20221112 18:02:25.255" level="INFO">${ancho} = 944.4444444444445</msg>
+<status status="PASS" starttime="20221112 18:02:25.252" endtime="20221112 18:02:25.256"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${admines}</arg>
@@ -115,15 +115,15 @@
 <arg>${pin}</arg>
 <arg>${angulo}</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20221110 19:45:18.856" endtime="20221110 19:45:19.170"/>
+<status status="PASS" starttime="20221112 18:02:25.257" endtime="20221112 18:02:25.559"/>
 </kw>
 <kw name="Should Be Equal As Numbers" library="BuiltIn">
 <arg>${admines.ancho}</arg>
 <arg>${ancho}</arg>
 <doc>Fails if objects are unequal after converting them to real numbers.</doc>
-<status status="PASS" starttime="20221110 19:45:19.170" endtime="20221110 19:45:19.170"/>
+<status status="PASS" starttime="20221112 18:02:25.560" endtime="20221112 18:02:25.561"/>
 </kw>
-<status status="PASS" starttime="20221110 19:45:18.814" endtime="20221110 19:45:19.170"/>
+<status status="PASS" starttime="20221112 18:02:25.242" endtime="20221112 18:02:25.561"/>
 </kw>
 <kw name="Verificar Calculo Angulo" library="keywords">
 <arg>${admines}</arg>
@@ -135,16 +135,16 @@
 <arg>y=${180}</arg>
 <arg>z=${500}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20221110 19:45:19.198" level="INFO">${ns} = {'x': 2000, 'y': 180, 'z': 500}</msg>
-<status status="PASS" starttime="20221110 19:45:19.191" endtime="20221110 19:45:19.199"/>
+<msg timestamp="20221112 18:02:25.569" level="INFO">${ns} = {'x': 2000, 'y': 180, 'z': 500}</msg>
+<status status="PASS" starttime="20221112 18:02:25.564" endtime="20221112 18:02:25.569"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${ancho}</var>
 <arg>${angulo}*x/y + z</arg>
 <arg>namespace=${ns}</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20221110 19:45:19.201" level="INFO">${ancho} = 500.0</msg>
-<status status="PASS" starttime="20221110 19:45:19.199" endtime="20221110 19:45:19.201"/>
+<msg timestamp="20221112 18:02:25.571" level="INFO">${ancho} = 500.0</msg>
+<status status="PASS" starttime="20221112 18:02:25.570" endtime="20221112 18:02:25.571"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${admines}</arg>
@@ -152,15 +152,15 @@
 <arg>${pin}</arg>
 <arg>${angulo}</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20221110 19:45:19.201" endtime="20221110 19:45:19.512"/>
+<status status="PASS" starttime="20221112 18:02:25.571" endtime="20221112 18:02:25.873"/>
 </kw>
 <kw name="Should Be Equal As Numbers" library="BuiltIn">
 <arg>${admines.ancho}</arg>
 <arg>${ancho}</arg>
 <doc>Fails if objects are unequal after converting them to real numbers.</doc>
-<status status="PASS" starttime="20221110 19:45:19.512" endtime="20221110 19:45:19.512"/>
+<status status="PASS" starttime="20221112 18:02:25.873" endtime="20221112 18:02:25.910"/>
 </kw>
-<status status="PASS" starttime="20221110 19:45:19.170" endtime="20221110 19:45:19.512"/>
+<status status="PASS" starttime="20221112 18:02:25.562" endtime="20221112 18:02:25.911"/>
 </kw>
 <kw name="Verificar Calculo Angulo" library="keywords">
 <arg>${admines}</arg>
@@ -172,16 +172,16 @@
 <arg>y=${180}</arg>
 <arg>z=${500}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20221110 19:45:19.550" level="INFO">${ns} = {'x': 2000, 'y': 180, 'z': 500}</msg>
-<status status="PASS" starttime="20221110 19:45:19.535" endtime="20221110 19:45:19.550"/>
+<msg timestamp="20221112 18:02:25.923" level="INFO">${ns} = {'x': 2000, 'y': 180, 'z': 500}</msg>
+<status status="PASS" starttime="20221112 18:02:25.917" endtime="20221112 18:02:25.923"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${ancho}</var>
 <arg>${angulo}*x/y + z</arg>
 <arg>namespace=${ns}</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20221110 19:45:19.554" level="INFO">${ancho} = 944.4444444444445</msg>
-<status status="PASS" starttime="20221110 19:45:19.551" endtime="20221110 19:45:19.554"/>
+<msg timestamp="20221112 18:02:25.925" level="INFO">${ancho} = 944.4444444444445</msg>
+<status status="PASS" starttime="20221112 18:02:25.924" endtime="20221112 18:02:25.925"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${admines}</arg>
@@ -189,15 +189,15 @@
 <arg>${pin}</arg>
 <arg>${angulo}</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20221110 19:45:19.554" endtime="20221110 19:45:19.870"/>
+<status status="PASS" starttime="20221112 18:02:25.925" endtime="20221112 18:02:26.253"/>
 </kw>
 <kw name="Should Be Equal As Numbers" library="BuiltIn">
 <arg>${admines.ancho}</arg>
 <arg>${ancho}</arg>
 <doc>Fails if objects are unequal after converting them to real numbers.</doc>
-<status status="PASS" starttime="20221110 19:45:19.870" endtime="20221110 19:45:19.870"/>
+<status status="PASS" starttime="20221112 18:02:26.253" endtime="20221112 18:02:26.265"/>
 </kw>
-<status status="PASS" starttime="20221110 19:45:19.512" endtime="20221110 19:45:19.870"/>
+<status status="PASS" starttime="20221112 18:02:25.911" endtime="20221112 18:02:26.266"/>
 </kw>
 <kw name="Verificar Calculo Angulo" library="keywords">
 <arg>${admines}</arg>
@@ -209,16 +209,16 @@
 <arg>y=${180}</arg>
 <arg>z=${500}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20221110 19:45:19.909" level="INFO">${ns} = {'x': 2000, 'y': 180, 'z': 500}</msg>
-<status status="PASS" starttime="20221110 19:45:19.892" endtime="20221110 19:45:19.909"/>
+<msg timestamp="20221112 18:02:26.280" level="INFO">${ns} = {'x': 2000, 'y': 180, 'z': 500}</msg>
+<status status="PASS" starttime="20221112 18:02:26.275" endtime="20221112 18:02:26.280"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${ancho}</var>
 <arg>${angulo}*x/y + z</arg>
 <arg>namespace=${ns}</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20221110 19:45:19.910" level="INFO">${ancho} = 500.0</msg>
-<status status="PASS" starttime="20221110 19:45:19.909" endtime="20221110 19:45:19.910"/>
+<msg timestamp="20221112 18:02:26.282" level="INFO">${ancho} = 500.0</msg>
+<status status="PASS" starttime="20221112 18:02:26.281" endtime="20221112 18:02:26.282"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${admines}</arg>
@@ -226,15 +226,15 @@
 <arg>${pin}</arg>
 <arg>${angulo}</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20221110 19:45:19.910" endtime="20221110 19:45:20.225"/>
+<status status="PASS" starttime="20221112 18:02:26.283" endtime="20221112 18:02:26.584"/>
 </kw>
 <kw name="Should Be Equal As Numbers" library="BuiltIn">
 <arg>${admines.ancho}</arg>
 <arg>${ancho}</arg>
 <doc>Fails if objects are unequal after converting them to real numbers.</doc>
-<status status="PASS" starttime="20221110 19:45:20.225" endtime="20221110 19:45:20.225"/>
+<status status="PASS" starttime="20221112 18:02:26.616" endtime="20221112 18:02:26.644"/>
 </kw>
-<status status="PASS" starttime="20221110 19:45:19.870" endtime="20221110 19:45:20.225"/>
+<status status="PASS" starttime="20221112 18:02:26.266" endtime="20221112 18:02:26.645"/>
 </kw>
 <kw name="Verificar Tiempo Sleep" library="keywords">
 <arg>${admines}</arg>
@@ -243,8 +243,8 @@
 <kw name="Get Current Date" library="DateTime">
 <var>${tiempo_inicio}</var>
 <doc>Returns current local or UTC time with an optional increment.</doc>
-<msg timestamp="20221110 19:45:20.248" level="INFO">${tiempo_inicio} = 2022-11-10 19:45:20.248</msg>
-<status status="PASS" starttime="20221110 19:45:20.247" endtime="20221110 19:45:20.249"/>
+<msg timestamp="20221112 18:02:26.652" level="INFO">${tiempo_inicio} = 2022-11-12 18:02:26.651</msg>
+<status status="PASS" starttime="20221112 18:02:26.651" endtime="20221112 18:02:26.652"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${admines}</arg>
@@ -252,13 +252,13 @@
 <arg>${pin}</arg>
 <arg>${angulo}</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20221110 19:45:20.249" endtime="20221110 19:45:20.562"/>
+<status status="PASS" starttime="20221112 18:02:26.652" endtime="20221112 18:02:26.954"/>
 </kw>
 <kw name="Get Current Date" library="DateTime">
 <var>${tiempo_final}</var>
 <doc>Returns current local or UTC time with an optional increment.</doc>
-<msg timestamp="20221110 19:45:20.562" level="INFO">${tiempo_final} = 2022-11-10 19:45:20.562</msg>
-<status status="PASS" starttime="20221110 19:45:20.562" endtime="20221110 19:45:20.562"/>
+<msg timestamp="20221112 18:02:26.955" level="INFO">${tiempo_final} = 2022-11-12 18:02:26.955</msg>
+<status status="PASS" starttime="20221112 18:02:26.954" endtime="20221112 18:02:26.955"/>
 </kw>
 <kw name="Subtract Date From Date" library="DateTime">
 <var>${tiempoMs}</var>
@@ -266,53 +266,562 @@
 <arg>${tiempo_inicio}</arg>
 <arg>result_format=number</arg>
 <doc>Subtracts date from another date and returns time between.</doc>
-<msg timestamp="20221110 19:45:20.578" level="INFO">${tiempoMs} = 0.314</msg>
-<status status="PASS" starttime="20221110 19:45:20.562" endtime="20221110 19:45:20.578"/>
+<msg timestamp="20221112 18:02:26.962" level="INFO">${tiempoMs} = 0.304</msg>
+<status status="PASS" starttime="20221112 18:02:26.955" endtime="20221112 18:02:26.962"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${resultado}</var>
 <arg>${tiempoMs} &gt;= 0.3</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20221110 19:45:20.578" level="INFO">${resultado} = True</msg>
-<status status="PASS" starttime="20221110 19:45:20.578" endtime="20221110 19:45:20.578"/>
+<msg timestamp="20221112 18:02:26.978" level="INFO">${resultado} = True</msg>
+<status status="PASS" starttime="20221112 18:02:26.977" endtime="20221112 18:02:26.978"/>
 </kw>
 <kw name="Should Be True" library="BuiltIn">
 <arg>${resultado}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" starttime="20221110 19:45:20.594" endtime="20221110 19:45:20.594"/>
+<status status="PASS" starttime="20221112 18:02:26.979" endtime="20221112 18:02:26.979"/>
 </kw>
-<status status="PASS" starttime="20221110 19:45:20.225" endtime="20221110 19:45:20.594"/>
+<status status="PASS" starttime="20221112 18:02:26.646" endtime="20221112 18:02:26.980"/>
 </kw>
 <doc>Testeo al metodo mover servo de la clase AdminES. Se testean distintos angulos de giro y pines y ademas el sleep de la funcion</doc>
-<status status="PASS" starttime="20221110 19:45:14.758" endtime="20221110 19:45:20.594"/>
+<status status="PASS" starttime="20221112 18:02:25.238" endtime="20221112 18:02:26.980"/>
+</test>
+<test id="s1-t3" name="QLearning set_params" line="23">
+<kw name="Get Library Instance" library="BuiltIn">
+<var>${qlearning}</var>
+<arg>QLearning</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<msg timestamp="20221112 18:02:26.983" level="INFO">${qlearning} = &lt;QLearning.QLearning object at 0x7f582daff9a0&gt;</msg>
+<status status="PASS" starttime="20221112 18:02:26.982" endtime="20221112 18:02:26.984"/>
+</kw>
+<kw name="Verificar Seteo De Parametros" library="keywords">
+<arg>${qlearning}</arg>
+<kw name="Set Variable" library="BuiltIn">
+<var>${learning_rate}</var>
+<arg>0.4</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221112 18:02:26.986" level="INFO">${learning_rate} = 0.4</msg>
+<status status="PASS" starttime="20221112 18:02:26.985" endtime="20221112 18:02:26.986"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${discount}</var>
+<arg>0.9</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221112 18:02:26.987" level="INFO">${discount} = 0.9</msg>
+<status status="PASS" starttime="20221112 18:02:26.986" endtime="20221112 18:02:26.987"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${epsilon}</var>
+<arg>0.9</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221112 18:02:26.987" level="INFO">${epsilon} = 0.9</msg>
+<status status="PASS" starttime="20221112 18:02:26.987" endtime="20221112 18:02:26.988"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${learning_epsilon}</var>
+<arg>0.002</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221112 18:02:26.988" level="INFO">${learning_epsilon} = 0.002</msg>
+<status status="PASS" starttime="20221112 18:02:26.988" endtime="20221112 18:02:26.988"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${min_epsilon}</var>
+<arg>0.15</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221112 18:02:26.989" level="INFO">${min_epsilon} = 0.15</msg>
+<status status="PASS" starttime="20221112 18:02:26.989" endtime="20221112 18:02:26.989"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${max_movements}</var>
+<arg>15</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221112 18:02:26.990" level="INFO">${max_movements} = 15</msg>
+<status status="PASS" starttime="20221112 18:02:26.990" endtime="20221112 18:02:26.990"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${win_reward}</var>
+<arg>4</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221112 18:02:26.991" level="INFO">${win_reward} = 4</msg>
+<status status="PASS" starttime="20221112 18:02:26.991" endtime="20221112 18:02:26.991"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${loss_reward}</var>
+<arg>-4</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221112 18:02:26.992" level="INFO">${loss_reward} = -4</msg>
+<status status="PASS" starttime="20221112 18:02:26.992" endtime="20221112 18:02:26.992"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${dead_reward}</var>
+<arg>-4</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221112 18:02:27.008" level="INFO">${dead_reward} = -4</msg>
+<status status="PASS" starttime="20221112 18:02:26.992" endtime="20221112 18:02:27.008"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${loop_reward}</var>
+<arg>-4</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221112 18:02:27.009" level="INFO">${loop_reward} = -4</msg>
+<status status="PASS" starttime="20221112 18:02:27.008" endtime="20221112 18:02:27.009"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${qlearning}</arg>
+<arg>set_params</arg>
+<arg>${learning_rate}</arg>
+<arg>${discount}</arg>
+<arg>${epsilon}</arg>
+<arg>${learning_epsilon}</arg>
+<arg>${min_epsilon}</arg>
+<arg>${max_movements}</arg>
+<arg>${win_reward}</arg>
+<arg>${loss_reward}</arg>
+<arg>${dead_reward}</arg>
+<arg>${loop_reward}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20221112 18:02:27.009" endtime="20221112 18:02:27.011"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${qlearning.LEARNING_RATE}</arg>
+<arg>${learning_rate}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" starttime="20221112 18:02:27.012" endtime="20221112 18:02:27.015"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${qlearning.DISCOUNT}</arg>
+<arg>${discount}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" starttime="20221112 18:02:27.016" endtime="20221112 18:02:27.021"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${qlearning.EPSILON}</arg>
+<arg>${epsilon}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" starttime="20221112 18:02:27.022" endtime="20221112 18:02:27.026"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${qlearning.LEARNING_EPSILON}</arg>
+<arg>${learning_epsilon}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" starttime="20221112 18:02:27.027" endtime="20221112 18:02:27.029"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${qlearning.MIN_EPSILON}</arg>
+<arg>${min_epsilon}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" starttime="20221112 18:02:27.030" endtime="20221112 18:02:27.032"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${qlearning.MAX_MOVEMENTS}</arg>
+<arg>${max_movements}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" starttime="20221112 18:02:27.033" endtime="20221112 18:02:27.037"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${qlearning.WIN_REWARD}</arg>
+<arg>${win_reward}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" starttime="20221112 18:02:27.037" endtime="20221112 18:02:27.039"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${qlearning.LOSS_REWARD}</arg>
+<arg>${loss_reward}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" starttime="20221112 18:02:27.040" endtime="20221112 18:02:27.041"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${qlearning.DEAD_REWARD}</arg>
+<arg>${dead_reward}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" starttime="20221112 18:02:27.041" endtime="20221112 18:02:27.043"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${qlearning.LOOP_REWARD}</arg>
+<arg>${loop_reward}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" starttime="20221112 18:02:27.043" endtime="20221112 18:02:27.045"/>
+</kw>
+<status status="PASS" starttime="20221112 18:02:26.984" endtime="20221112 18:02:27.046"/>
+</kw>
+<doc>Testeo al set_params de la clase Qlearning</doc>
+<status status="PASS" starttime="20221112 18:02:26.981" endtime="20221112 18:02:27.046"/>
+</test>
+<test id="s1-t4" name="QLearning set_default_params" line="28">
+<kw name="Get Library Instance" library="BuiltIn">
+<var>${qlearning}</var>
+<arg>QLearning</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<msg timestamp="20221112 18:02:27.049" level="INFO">${qlearning} = &lt;QLearning.QLearning object at 0x7f582daffdc0&gt;</msg>
+<status status="PASS" starttime="20221112 18:02:27.048" endtime="20221112 18:02:27.049"/>
+</kw>
+<kw name=" Verificar Seteo De Parametros Por Default" library="keywords">
+<arg>${qlearning}</arg>
+<kw name="Set Variable" library="BuiltIn">
+<var>${learning_rate}</var>
+<arg>0.4</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221112 18:02:27.053" level="INFO">${learning_rate} = 0.4</msg>
+<status status="PASS" starttime="20221112 18:02:27.052" endtime="20221112 18:02:27.053"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${discount}</var>
+<arg>0.9</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221112 18:02:27.054" level="INFO">${discount} = 0.9</msg>
+<status status="PASS" starttime="20221112 18:02:27.053" endtime="20221112 18:02:27.054"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${epsilon}</var>
+<arg>0.9</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221112 18:02:27.055" level="INFO">${epsilon} = 0.9</msg>
+<status status="PASS" starttime="20221112 18:02:27.054" endtime="20221112 18:02:27.055"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${learning_epsilon}</var>
+<arg>0.002</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221112 18:02:27.056" level="INFO">${learning_epsilon} = 0.002</msg>
+<status status="PASS" starttime="20221112 18:02:27.055" endtime="20221112 18:02:27.057"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${min_epsilon}</var>
+<arg>0.15</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221112 18:02:27.061" level="INFO">${min_epsilon} = 0.15</msg>
+<status status="PASS" starttime="20221112 18:02:27.059" endtime="20221112 18:02:27.061"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${max_movements}</var>
+<arg>15</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221112 18:02:27.062" level="INFO">${max_movements} = 15</msg>
+<status status="PASS" starttime="20221112 18:02:27.062" endtime="20221112 18:02:27.062"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${win_reward}</var>
+<arg>4</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221112 18:02:27.063" level="INFO">${win_reward} = 4</msg>
+<status status="PASS" starttime="20221112 18:02:27.062" endtime="20221112 18:02:27.063"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${loss_reward}</var>
+<arg>-4</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221112 18:02:27.063" level="INFO">${loss_reward} = -4</msg>
+<status status="PASS" starttime="20221112 18:02:27.063" endtime="20221112 18:02:27.063"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${dead_reward}</var>
+<arg>-4</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221112 18:02:27.064" level="INFO">${dead_reward} = -4</msg>
+<status status="PASS" starttime="20221112 18:02:27.063" endtime="20221112 18:02:27.064"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${loop_reward}</var>
+<arg>-4</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221112 18:02:27.064" level="INFO">${loop_reward} = -4</msg>
+<status status="PASS" starttime="20221112 18:02:27.064" endtime="20221112 18:02:27.064"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${qlearning}</arg>
+<arg>set_default_params</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20221112 18:02:27.065" endtime="20221112 18:02:27.065"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${qlearning.LEARNING_RATE}</arg>
+<arg>${learning_rate}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20221112 18:02:27.067" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221112 18:02:27.065" endtime="20221112 18:02:27.067"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${qlearning.DISCOUNT}</arg>
+<arg>${discount}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20221112 18:02:27.069" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221112 18:02:27.067" endtime="20221112 18:02:27.069"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${qlearning.EPSILON}</arg>
+<arg>${epsilon}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20221112 18:02:27.071" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221112 18:02:27.069" endtime="20221112 18:02:27.071"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${qlearning.LEARNING_EPSILON}</arg>
+<arg>${learning_epsilon}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20221112 18:02:27.074" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221112 18:02:27.071" endtime="20221112 18:02:27.074"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${qlearning.MIN_EPSILON}</arg>
+<arg>${min_epsilon}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20221112 18:02:27.078" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221112 18:02:27.075" endtime="20221112 18:02:27.078"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${qlearning.MAX_MOVEMENTS}</arg>
+<arg>${max_movements}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20221112 18:02:27.083" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221112 18:02:27.079" endtime="20221112 18:02:27.083"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${qlearning.WIN_REWARD}</arg>
+<arg>${win_reward}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20221112 18:02:27.089" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221112 18:02:27.083" endtime="20221112 18:02:27.091"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${qlearning.LOSS_REWARD}</arg>
+<arg>${loss_reward}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20221112 18:02:27.096" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221112 18:02:27.093" endtime="20221112 18:02:27.097"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${qlearning.DEAD_REWARD}</arg>
+<arg>${dead_reward}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20221112 18:02:27.103" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221112 18:02:27.098" endtime="20221112 18:02:27.103"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${qlearning.LOOP_REWARD}</arg>
+<arg>${loop_reward}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20221112 18:02:27.110" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221112 18:02:27.103" endtime="20221112 18:02:27.110"/>
+</kw>
+<status status="PASS" starttime="20221112 18:02:27.049" endtime="20221112 18:02:27.110"/>
+</kw>
+<doc>Testeo al set_default_params de la clase Qlearning</doc>
+<status status="PASS" starttime="20221112 18:02:27.047" endtime="20221112 18:02:27.113"/>
+</test>
+<test id="s1-t5" name="QLearning get_params" line="33">
+<kw name="Get Library Instance" library="BuiltIn">
+<var>${qlearning}</var>
+<arg>QLearning</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<msg timestamp="20221112 18:02:27.126" level="INFO">${qlearning} = &lt;QLearning.QLearning object at 0x7f582dae5550&gt;</msg>
+<status status="PASS" starttime="20221112 18:02:27.120" endtime="20221112 18:02:27.126"/>
+</kw>
+<kw name=" Verificar Obtencion De Parametros" library="keywords">
+<arg>${qlearning}</arg>
+<kw name="Set Variable" library="BuiltIn">
+<var>${learning_rate}</var>
+<arg>0.4</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221112 18:02:27.130" level="INFO">${learning_rate} = 0.4</msg>
+<status status="PASS" starttime="20221112 18:02:27.129" endtime="20221112 18:02:27.130"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${discount}</var>
+<arg>0.9</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221112 18:02:27.131" level="INFO">${discount} = 0.9</msg>
+<status status="PASS" starttime="20221112 18:02:27.130" endtime="20221112 18:02:27.131"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${epsilon}</var>
+<arg>0.9</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221112 18:02:27.132" level="INFO">${epsilon} = 0.9</msg>
+<status status="PASS" starttime="20221112 18:02:27.131" endtime="20221112 18:02:27.132"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${learning_epsilon}</var>
+<arg>0.002</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221112 18:02:27.134" level="INFO">${learning_epsilon} = 0.002</msg>
+<status status="PASS" starttime="20221112 18:02:27.133" endtime="20221112 18:02:27.134"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${min_epsilon}</var>
+<arg>0.15</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221112 18:02:27.135" level="INFO">${min_epsilon} = 0.15</msg>
+<status status="PASS" starttime="20221112 18:02:27.134" endtime="20221112 18:02:27.135"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${max_movements}</var>
+<arg>15</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221112 18:02:27.136" level="INFO">${max_movements} = 15</msg>
+<status status="PASS" starttime="20221112 18:02:27.136" endtime="20221112 18:02:27.136"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${win_reward}</var>
+<arg>4</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221112 18:02:27.137" level="INFO">${win_reward} = 4</msg>
+<status status="PASS" starttime="20221112 18:02:27.137" endtime="20221112 18:02:27.138"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${loss_reward}</var>
+<arg>-4</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221112 18:02:27.142" level="INFO">${loss_reward} = -4</msg>
+<status status="PASS" starttime="20221112 18:02:27.140" endtime="20221112 18:02:27.143"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${dead_reward}</var>
+<arg>-4</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221112 18:02:27.146" level="INFO">${dead_reward} = -4</msg>
+<status status="PASS" starttime="20221112 18:02:27.143" endtime="20221112 18:02:27.146"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${loop_reward}</var>
+<arg>-4</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221112 18:02:27.147" level="INFO">${loop_reward} = -4</msg>
+<status status="PASS" starttime="20221112 18:02:27.146" endtime="20221112 18:02:27.147"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${qlearning}</arg>
+<arg>get_params</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20221112 18:02:27.147" endtime="20221112 18:02:27.147"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${qlearning.LEARNING_RATE}</arg>
+<arg>${learning_rate}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20221112 18:02:27.149" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221112 18:02:27.148" endtime="20221112 18:02:27.149"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${qlearning.DISCOUNT}</arg>
+<arg>${discount}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20221112 18:02:27.156" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221112 18:02:27.149" endtime="20221112 18:02:27.157"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${qlearning.EPSILON}</arg>
+<arg>${epsilon}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20221112 18:02:27.162" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221112 18:02:27.159" endtime="20221112 18:02:27.162"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${qlearning.LEARNING_EPSILON}</arg>
+<arg>${learning_epsilon}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20221112 18:02:27.165" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221112 18:02:27.163" endtime="20221112 18:02:27.165"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${qlearning.MIN_EPSILON}</arg>
+<arg>${min_epsilon}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20221112 18:02:27.169" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221112 18:02:27.166" endtime="20221112 18:02:27.169"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${qlearning.MAX_MOVEMENTS}</arg>
+<arg>${max_movements}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20221112 18:02:27.174" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221112 18:02:27.170" endtime="20221112 18:02:27.175"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${qlearning.WIN_REWARD}</arg>
+<arg>${win_reward}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20221112 18:02:27.179" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221112 18:02:27.176" endtime="20221112 18:02:27.179"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${qlearning.LOSS_REWARD}</arg>
+<arg>${loss_reward}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20221112 18:02:27.183" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221112 18:02:27.179" endtime="20221112 18:02:27.183"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${qlearning.DEAD_REWARD}</arg>
+<arg>${dead_reward}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20221112 18:02:27.190" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221112 18:02:27.184" endtime="20221112 18:02:27.191"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${qlearning.LOOP_REWARD}</arg>
+<arg>${loop_reward}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20221112 18:02:27.195" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221112 18:02:27.192" endtime="20221112 18:02:27.195"/>
+</kw>
+<status status="PASS" starttime="20221112 18:02:27.127" endtime="20221112 18:02:27.196"/>
+</kw>
+<doc>Testeo al get_params de la clase Qlearning</doc>
+<status status="PASS" starttime="20221112 18:02:27.116" endtime="20221112 18:02:27.196"/>
 </test>
 <doc>Testeo al codigo de Crawler A1</doc>
-<status status="PASS" starttime="20221110 19:45:06.026" endtime="20221110 19:45:20.600"/>
+<status status="PASS" starttime="20221112 18:02:24.657" endtime="20221112 18:02:27.198"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="0" skip="0">All Tests</stat>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="2" fail="0" skip="0" id="s1" name="CrawlerA1Test">CrawlerA1Test</stat>
+<stat pass="5" fail="0" skip="0" id="s1" name="CrawlerA1Test">CrawlerA1Test</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20221110 19:45:10.573" level="ERROR">Error in file 'C:\Users\mateo\Desktop\Taller de Proyecto II\crawler-bot-main\test\CrawlerA1Test.robot' on line 4: Importing library 'C:\Users\mateo\Desktop\Taller de Proyecto II\crawler-bot-main\python_code\QLearning.py' failed: ModuleNotFoundError: No module named 'python_code'
-Traceback (most recent call last):
-  File "C:\Users\mateo\Desktop\Taller de Proyecto II\crawler-bot-main\python_code\QLearning.py", line 6, in &lt;module&gt;
-    from python_code.robot import Robot
-PYTHONPATH:
-  C:\Users\mateo\Desktop\Taller de Proyecto II\crawler-bot-main\python_code
-  C:\Users\mateo\Desktop\Taller de Proyecto II\crawler-bot-main\test
-  C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\python310.zip
-  C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\DLLs
-  C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\lib
-  C:\Users\mateo\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0
-  C:\Users\mateo\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages
-  C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0
-  C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\lib\site-packages</msg>
 </errors>
 </robot>

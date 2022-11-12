@@ -1,11 +1,10 @@
 *** Settings ***
 | Documentation      | Testeo al codigo de Crawler A1
+| Variables          | ../app.py
 | Library            | ../python_code/AdminES.py 
 | Library            | ../python_code/QLearning.py     | ${app}
 | Resource           | keywords.resource
 
-*** Variables ***
-| ${admines}=    | Get Library Instance    | AdminES
 
 *** Test Cases ***
 | AdminEs __init__    | [Documentation]    | Testeo al constructor de la clase AdminES
