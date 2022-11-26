@@ -33,7 +33,7 @@ class Robot():
 		if _raspi: # Si se está ejecutando en una Raspi, se crea el administrador de entrada/salida
 			self.adminES = AdminES()
 		
-		self.angulos = [0,40,75]	# Establecimiento de los angulos posibles para los encoders
+		self.angulos = [0,40,75]	# Establecimiento de los angulos posibles para los servomotores
 		self.encoders = self.lectura_encoders()	# Lectura inicial de los encoders
 		
 		# Inicialización de variables

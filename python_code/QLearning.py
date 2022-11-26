@@ -3,7 +3,7 @@ import time
 import random
 from threading import Semaphore
 
-from python_code.robot import Robot
+from python_code.Robot import Robot
 
 class QLearning():
 	'''
