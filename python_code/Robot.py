@@ -185,10 +185,10 @@ class Robot():
 			self.encoders = [1,1]  						# Descartar lectura anterior
 		else:
 			if self.encoders == [1,1]:  				# El valor almacenado no es útil (ambos en cero)
-				self.encoders == encoder  				# Sólo actualizar el nuevo valor de los encoders
+				self.encoders = encoder  				# Sólo actualizar el nuevo valor de los encoders
 			else:  										# El nuevo valor y el valor almacenado son ambos diferentes de [1,1]
 				if encoder[0] > self.encoders[0]:  		# El encoder 0 pasó de 0 a 1
-					self.encoders == encoder  			# Actualizar el nuevo valor de los encoders
+					self.encoders = encoder  			# Actualizar el nuevo valor de los encoders
 					
 					self.semaforo_flag_bloqueo.acquire()
 					self.lectura_bloqueada = True  		# Bloquea el movimiento detectado hasta que sea leído
@@ -196,7 +196,7 @@ class Robot():
 					# print("avance")
 					return self.recompensa_avanzar		# El movimiento es hacia adelante
 				if encoder[1] > self.encoders[1]:  		# El encoder 1 pasó de 0 a 1
-					self.encoders == encoder  			# Actualizar el nuevo valor de los encoders
+					self.encoders = encoder  			# Actualizar el nuevo valor de los encoders
 					
 					self.semaforo_flag_bloqueo.acquire()
 					self.lectura_bloqueada = True  		# Bloquea el movimiento detectado hasta que sea leído

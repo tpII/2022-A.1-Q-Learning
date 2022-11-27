@@ -34,9 +34,9 @@
 |                               | ${qlearning}=         | Get Library Instance                    | QLearning
 |                               | Verificar Obtencion De Parametros           | ${qlearning}      | 
 *** Test Cases ***
-| QLearning inicializar_q_table | [Documentation] | Testeo al inicializar_q_table con valores por defecto y con valores predeterminados
-|                               | ${qlearning}=         | Get Library Instance                    | QLearning
-|                               | Verificar Iniciacion De Tabla Q       | ${qlearning}
+# | QLearning inicializar_q_table | [Documentation] | Testeo al inicializar_q_table con valores por defecto y con valores predeterminados
+# |                               | ${qlearning}=         | Get Library Instance                    | QLearning
+# |                               | Verificar Iniciacion De Tabla Q       | ${qlearning}
 
 | Robot __init__    | [Documentation]    | Testeo al constructor de la clase Robot
 |                   | ${robot}           | Get Library Instance                    | Robot
