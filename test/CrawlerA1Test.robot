@@ -2,7 +2,8 @@
 | Documentation      | Testeo al codigo de Crawler A1
 | Variables          | ../app.py
 | Library            | ../python_code/AdminES.py 
-| Library            | ../python_code/QLearning.py        | ${app}
+| Library            | ../python_code/QLearning.py     | ${app}
+| Library            | ../python_code/Robot.py         | ${4}       | ${-4}   | ${-4}
 | Resource           | keywords.resource
 
 *** Test Cases ***
@@ -32,9 +33,15 @@
 | QLearning get_params          | [Documentation] | Testeo al get_params de la clase Qlearning
 |                               | ${qlearning}=         | Get Library Instance                    | QLearning
 |                               | Verificar Obtencion De Parametros           | ${qlearning}      | 
-
 *** Test Cases ***
 | QLearning inicializar_q_table | [Documentation] | Testeo al inicializar_q_table con valores por defecto y con valores predeterminados
 |                               | ${qlearning}=         | Get Library Instance                    | QLearning
 |                               | Verificar Iniciacion De Tabla Q       | ${qlearning}
-                             
+
+| Robot __init__    | [Documentation]    | Testeo al constructor de la clase Robot
+|                   | ${robot}           | Get Library Instance                    | Robot
+|                   | Verificar Inicializacion Variables    | ${robot}
+
+| Robot calcular_avance    | [Documentation]    | Testeo a la funcion calcular_avance de la clase Robot 
+|                          | ${robot}           | Get Library Instance    | Robot
+|                          | Verificar Calculo De Avance     | ${robot}

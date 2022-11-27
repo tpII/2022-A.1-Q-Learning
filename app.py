@@ -6,7 +6,7 @@ import time
 import random
   
 from python_code.QLearning import QLearning
-from python_code.robot import _raspi
+from python_code.Robot import _raspi
 import python_code.constantes as const
 
 # Si se está ejecutando en una Raspi, 

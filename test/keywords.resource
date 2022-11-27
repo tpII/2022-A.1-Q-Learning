@@ -1,6 +1,7 @@
 *** Settings ***
 | Documentation    | Archivo de fuente, contiene variables y metodos
 | Library          | DateTime
+Library    String
 Library    Collections
 
 *** Keywords ***
@@ -142,7 +143,6 @@ Library    Collections
 |                    | Should Be Equal As Numbers    | ${qlearning.DEAD_REWARD}      | ${dead_reward}
 |                    | Should Be Equal As Numbers    | ${qlearning.LOOP_REWARD}      | ${loop_reward}
 
-
 Verificar Iniciacion De Tabla Q 
 |                    | [Arguments]    | ${qlearning}
 |                    | Call Method    | ${qlearning}       | inicializar_q_table   | 
@@ -172,3 +172,47 @@ Verificar Iniciacion De Tabla Q
 |                    |         END |
 
                         
+| Verificar Inicializacion Variables
+|                    | [Arguments]    | ${robot}
+|                    | ${_raspi}=     | Set Variable    | ${True}
+|                    | Variable Should Not Exist    | ${robot.adminES}    | La variable adminES existe
+|                    | Should Be Equal    | ${robot.angulos[0]}    | ${0}
+|                    | Should Be Equal    | ${robot.angulos[1]}    | ${40}
+|                    | Should Be Equal    | ${robot.angulos[2]}    | ${75}
+|                    | ${resultado}=      | Evaluate    | ${robot.encoders[0]} == ${0} or ${robot.encoders[0]} == ${1}
+|                    | Should Be True     | ${resultado}
+|                    | ${resultado}=      | Evaluate    | ${robot.encoders[1]} == ${0} or ${robot.encoders[1]} == ${1}
+|                    | Should Be True     | ${resultado}
+|                    | Should Be Equal    | ${robot.recompensa}    | ${0}
+|                    | Should Not Be True | ${robot.lectura_bloqueada}
+|                    | Should Be Equal    | ${robot.recompensa_avanzar}        | ${4}
+|                    | Should Be Equal    | ${robot.recompensa_retroceder}     | ${-4}
+|                    | Should Be Equal    | ${robot.recompensa_dead}           | ${-4}
+|                    | ${resultado}=      | Evaluate    | len(${robot.state})
+|                    | Should Be Equal    | ${resultado}    | ${2}
+|                    | Should Be Equal    | ${robot.state[0]}      | ${0}
+|                    | Should Be Equal    | ${robot.state[1]}      | ${2}
+
+| Verificar Calculo De Avance
+|                            | [Arguments]    | ${robot}
+#|                            | ${vector}
+#|                            | FOR | ${i} | IN RANGE | 2
+#|                            |     Append To List    | ${vector}     | ${i}
+#|                            | END
+#|                            | Log To Console    | ${vector}
+#|                            | Log To Console    | ${vector[0]}
+|                            | ${robot.encoders}=     | Create List    | ${0}    | ${0}
+|                            | ${encoders}=           | Create List    | ${1}    | ${0}
+|                            | Log To Console   | ${robot.encoders}
+|                            | ${resultado}=    | Call Method       | ${robot}    | calcular_avance    | ${encoders}
+|                            | Log To Console    | ${resultado}
+|                            | ${robot.encoders}=     | Create List    | ${0}    | ${1}
+|                            | Log To Console   | ${robot.encoders}
+|                            | ${resultado}=    | Call Method       | ${robot}    | calcular_avance    | ${robot.encoders}
+|                            | Log To Console    | ${resultado}
+|                            | ${robot.encoders}=     | Create List    | ${1}    | ${1}
+|                            | Log To Console   | ${robot.encoders}
+|                            | ${resultado}=    | Call Method       | ${robot}    | calcular_avance    | ${robot.encoders}
+|                            | Log To Console    | ${resultado}
+#|                            | ${resultado}=    | Call Method       | ${robot}    | calcular_avance    | ${robot.encoders}
+|                            | Should Be Equal  | ${resultado}    | ${0}

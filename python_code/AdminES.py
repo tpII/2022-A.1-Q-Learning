@@ -84,5 +84,5 @@ class AdminES:
 		'''
 		self.mover_servo(self.pin_servo1, 10)
 		self.mover_servo(self.pin_servo2, 85)
-		self.pi.set_servo_pulsewidth(self.pin_servo1, 0) 
-		self.pi.set_servo_pulsewidth(self.pin_servo2, 0)
+		#self.pi.set_servo_pulsewidth(self.pin_servo1, 0) 
+		#self.pi.set_servo_pulsewidth(self.pin_servo2, 0)
