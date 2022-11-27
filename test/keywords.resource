@@ -17,6 +17,7 @@ Library    Collections
 |                    | Should Be Equal As Integers    | ${admines.pin_encoder2}    | ${pin_encoder2}    |
 
 | Verificar Calculo Angulo
+## Se verifica la suma realizada en el calculo del angulo de movimiento del servoMotor
 |                    | [Arguments]    | ${admines}    | ${angulo}    | ${pin}
 |                    | ${ns}          | Create Dictionary    | x=${2000}    | y=${180}    | z=${500}
 |                    | ${ancho}=      | Evaluate    | ${angulo}*x/y + z    | namespace=${ns}
@@ -24,6 +25,7 @@ Library    Collections
 |                    | Should Be Equal As Numbers    | ${admines.ancho}    | ${ancho}
 
 | Verificar Tiempo Sleep
+## Se verificar 
 |                    | [Arguments]    | ${admines}    | ${angulo}    | ${pin}
 |                    | ${tiempo_inicio}=    | Get Current Date
 |                    | Call Method    | ${admines}    | mover_servo    | ${pin}    | ${angulo}
@@ -57,7 +59,7 @@ Library    Collections
 |                    | Should Be Equal As Numbers    | ${qlearning.LOSS_REWARD}      | ${loss_reward}
 |                    | Should Be Equal As Numbers    | ${qlearning.DEAD_REWARD}      | ${dead_reward}
 |                    | Should Be Equal As Numbers    | ${qlearning.LOOP_REWARD}      | ${loop_reward}
-|                    | Call Method        | ${qlearning}                  | get_params      | 
+|                    | Call Method        | ${qlearning}                  | get_params      | ##Se vuelven a comprar que los parametros sean correctos llamando a la funcion get_params
 |                    | Should Be Equal As Numbers    | ${qlearning.LEARNING_RATE}    | ${learning_rate}
 |                    | Should Be Equal As Numbers    | ${qlearning.DISCOUNT}         | ${discount}
 |                    | Should Be Equal As Numbers    | ${qlearning.EPSILON}          | ${epsilon}
@@ -72,6 +74,7 @@ Library    Collections
 
 
 Verificar Iniciacion De Tabla Q 
+##Se verifica la inicializacion de la Tabla q utilizada en el entrenamiento
 |                    | [Arguments]    | ${qlearning}
 |                    | Call Method    | ${qlearning}       | inicializar_q_table   | ## Se verifica que se cree la tabla correctamente al no pasarla como parametro
 |                    | FOR | ${i} | IN RANGE |     3           
@@ -95,9 +98,13 @@ Verificar Iniciacion De Tabla Q
 |                    |     END |
 |                    |         END |
                   
-
-
-
+Verificar Iniciacion De Variables De Entrenamiento
+## Se verifica el constructor de la clase Qlearning            
+|                    | [Arguments]    | ${qlearning}
+|                    | Should Not Be True    | ${qlearning.done} |                     ## Se verifica que la variable se asigne en false
+|                    | Should Be Equal As Numbers   | ${qlearning.ACTIONS} | ${4} |     ## Se verifica que la variable se asigne en false
+|                    | ${SIZE}= | Evaluate | (3, 3) | 
+|                    | Should Be Equal  | ${qlearning.STATE_SIZE} | ${SIZE}	 |         ## Se verifica que el string que define el tamano sea correcto
 
 
 | Verificar Inicializacion Variables

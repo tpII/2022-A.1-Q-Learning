@@ -23,16 +23,11 @@
 | QLearning set_params, set_default_params y get_params | [Documentation] | Testeo al set_params, set_default_params y get_params de la clase Qlearning
 |                                                       | ${qlearning}=         | Get Library Instance        | QLearning
 |                                                       | Verificar Seteo Y Obtencion De Parametros           | ${qlearning}      |
+| QLearning __init__    | [Documentation] | Testeo al constructor de la clase Qlearning
+|                       | ${qlearning}=         | Get Library Instance                    | QLearning
+|                       | Verificar Iniciacion De Variables De Entrenamiento     | ${qlearning}  
 
-*** Test Cases ***
-| QLearning set_default_params  | [Documentation] | Testeo al set_default_params de la clase Qlearning
-|                               | ${qlearning}=         | Get Library Instance                   | QLearning
-|                               | Verificar Seteo De Parametros Por Default  | ${qlearning}      | 
 
-*** Test Cases ***
-| QLearning get_params          | [Documentation] | Testeo al get_params de la clase Qlearning
-|                               | ${qlearning}=         | Get Library Instance                    | QLearning
-|                               | Verificar Obtencion De Parametros           | ${qlearning}      | 
 *** Test Cases ***
 | QLearning inicializar_q_table | [Documentation] | Testeo al inicializar_q_table con valores por defecto y con valores predeterminados
 |                               | ${qlearning}=         | Get Library Instance                    | QLearning
