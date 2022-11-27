@@ -46,7 +46,7 @@ Library    Collections
 |                    | ${loss_reward}=      | Set variable        | -4
 |                    | ${dead_reward}=      | Set variable        | -4
 |                    | ${loop_reward}=      | Set variable        | -4
-|                    | Call Method        | ${qlearning}          | set_default_params      | 
+|                    | Call Method        | ${qlearning}          | set_default_params      | ## Se comprueba el set_default_params y el set_params que lo llama el mismo
 |                    | Should Be Equal As Numbers    | ${qlearning.LEARNING_RATE}    | ${learning_rate}
 |                    | Should Be Equal As Numbers    | ${qlearning.DISCOUNT}         | ${discount}
 |                    | Should Be Equal As Numbers    | ${qlearning.EPSILON}          | ${epsilon}
@@ -70,108 +70,36 @@ Library    Collections
 |                    | Should Be Equal As Numbers    | ${qlearning.LOOP_REWARD}      | ${loop_reward}
 
 
-| Verificar Seteo De Parametros
-|                    | [Arguments]    | ${qlearning}
-|                    | ${learning_rate}=    | Set variable        | 0.4
-|                    | ${discount}=         | Set variable        | 0.9
-|                    | ${epsilon}=          | Set variable        | 0.9
-|                    | ${learning_epsilon}= | Set variable        | 0.002
-|                    | ${min_epsilon}=      | Set variable        | 0.15
-|                    | ${max_movements}=    | Set variable        | 15
-|                    | ${win_reward}=       | Set variable        | 4
-|                    | ${loss_reward}=      | Set variable        | -4
-|                    | ${dead_reward}=      | Set variable        | -4
-|                    | ${loop_reward}=      | Set variable        | -4
-|                    | Call Method    | ${qlearning}    | set_params      | ${learning_rate}| ${discount}   | ${epsilon}    | ${learning_epsilon}    | ${min_epsilon}    | ${max_movements}    | ${win_reward}    | ${loss_reward}    | ${dead_reward}   | ${dead_reward}    | ${loop_reward}
-|                    | Should Be Equal    | ${qlearning.LEARNING_RATE}    | ${learning_rate}
-|                    | Should Be Equal    | ${qlearning.DISCOUNT}         | ${discount}
-|                    | Should Be Equal    | ${qlearning.EPSILON}          | ${epsilon}
-|                    | Should Be Equal    | ${qlearning.LEARNING_EPSILON} | ${learning_epsilon}
-|                    | Should Be Equal    | ${qlearning.MIN_EPSILON}      | ${min_epsilon}
-|                    | Should Be Equal    | ${qlearning.MAX_MOVEMENTS}    | ${max_movements}
-|                    | Should Be Equal    | ${qlearning.WIN_REWARD}       | ${win_reward}
-|                    | Should Be Equal    | ${qlearning.LOSS_REWARD}      | ${loss_reward}
-|                    | Should Be Equal    | ${qlearning.DEAD_REWARD}      | ${dead_reward}
-|                    | Should Be Equal    | ${qlearning.LOOP_REWARD}      | ${loop_reward}
-
-
- Verificar Seteo De Parametros Por Default
-|                    | [Arguments]    | ${qlearning}
-|                    | ${learning_rate}=    | Set variable        | 0.4
-|                    | ${discount}=         | Set variable        | 0.9
-|                    | ${epsilon}=          | Set variable        | 0.9
-|                    | ${learning_epsilon}= | Set variable        | 0.002
-|                    | ${min_epsilon}=      | Set variable        | 0.15
-|                    | ${max_movements}=    | Set variable        | 15
-|                    | ${win_reward}=       | Set variable        | 4
-|                    | ${loss_reward}=      | Set variable        | -4
-|                    | ${dead_reward}=      | Set variable        | -4
-|                    | ${loop_reward}=      | Set variable        | -4
-|                    | Call Method        | ${qlearning}    | set_default_params      | 
-|                    | Should Be Equal As Numbers    | ${qlearning.LEARNING_RATE}    | ${learning_rate}
-|                    | Should Be Equal As Numbers    | ${qlearning.DISCOUNT}         | ${discount}
-|                    | Should Be Equal As Numbers    | ${qlearning.EPSILON}          | ${epsilon}
-|                    | Should Be Equal As Numbers    | ${qlearning.LEARNING_EPSILON} | ${learning_epsilon}
-|                    | Should Be Equal As Numbers    | ${qlearning.MIN_EPSILON}      | ${min_epsilon}
-|                    | Should Be Equal As Numbers    | ${qlearning.MAX_MOVEMENTS}    | ${max_movements}
-|                    | Should Be Equal As Numbers    | ${qlearning.WIN_REWARD}       | ${win_reward}
-|                    | Should Be Equal As Numbers    | ${qlearning.LOSS_REWARD}      | ${loss_reward}
-|                    | Should Be Equal As Numbers    | ${qlearning.DEAD_REWARD}      | ${dead_reward}
-|                    | Should Be Equal As Numbers    | ${qlearning.LOOP_REWARD}      | ${loop_reward}
-
- Verificar Obtencion De Parametros
-|                    | [Arguments]    | ${qlearning}
-|                    | ${learning_rate}=    | Set variable        | 0.4
-|                    | ${discount}=         | Set variable        | 0.9
-|                    | ${epsilon}=          | Set variable        | 0.9
-|                    | ${learning_epsilon}= | Set variable        | 0.002
-|                    | ${min_epsilon}=      | Set variable        | 0.15
-|                    | ${max_movements}=    | Set variable        | 15
-|                    | ${win_reward}=       | Set variable        | 4
-|                    | ${loss_reward}=      | Set variable        | -4
-|                    | ${dead_reward}=      | Set variable        | -4
-|                    | ${loop_reward}=      | Set variable        | -4
-|                    | Call Method    | ${qlearning}              | get_params      | 
-|                    | Should Be Equal As Numbers    | ${qlearning.LEARNING_RATE}    | ${learning_rate}
-|                    | Should Be Equal As Numbers    | ${qlearning.DISCOUNT}         | ${discount}
-|                    | Should Be Equal As Numbers    | ${qlearning.EPSILON}          | ${epsilon}
-|                    | Should Be Equal As Numbers    | ${qlearning.LEARNING_EPSILON} | ${learning_epsilon}
-|                    | Should Be Equal As Numbers    | ${qlearning.MIN_EPSILON}      | ${min_epsilon}
-|                    | Should Be Equal As Numbers    | ${qlearning.MAX_MOVEMENTS}    | ${max_movements}
-|                    | Should Be Equal As Numbers    | ${qlearning.WIN_REWARD}       | ${win_reward}
-|                    | Should Be Equal As Numbers    | ${qlearning.LOSS_REWARD}      | ${loss_reward}
-|                    | Should Be Equal As Numbers    | ${qlearning.DEAD_REWARD}      | ${dead_reward}
-|                    | Should Be Equal As Numbers    | ${qlearning.LOOP_REWARD}      | ${loop_reward}
 
 Verificar Iniciacion De Tabla Q 
 |                    | [Arguments]    | ${qlearning}
-|                    | Call Method    | ${qlearning}       | inicializar_q_table   | 
+|                    | Call Method    | ${qlearning}       | inicializar_q_table   | ## Se verifica que se cree la tabla correctamente al no pasarla como parametro
 |                    | FOR | ${i} | IN RANGE |     3           
 |                    |     FOR | ${j} | IN RANGE | 3
 |                    |         FOR | ${k} | IN RANGE | 4 
-|                    | Should Be Equal   | ${qlearning.q_table[${i}][${j}][${k}]} | ${0}    |
+|                    | Should Be Equal   | ${qlearning.q_table[${i}][${j}][${k}]} | ${0}    | ## Se verifica que el iniciar_q_table, crea una tabla con todos sus valores en 0
 |                    | END |
 |                    |     END |
 |                    |         END |
-|                    | Set Suite Variable | ${q_table} | ${qlearning.q_table}
-|                    | FOR | ${i} | IN RANGE |     3           
-|                    |     FOR | ${j} | IN RANGE | 3
-|                    |         FOR | ${k} | IN RANGE | 4 
-|                    | Set Suite Variable | ${q_table[${i}][${j}][${k}]} | ${1}
-|                    | END |
-|                    |     END |
-|                    |         END |
-|                    | Log To Console     | ${q_table}  
-|                    | Call Method    | ${qlearning}       | inicializar_q_table  | ${q_table}
+|                    | Set Suite Variable | ${q_table} | ${qlearning.q_table} | ## Se copia la tabla en una variable local para tener una copia que modificar
+|                    | ${q_table}= |  set variable | ${q_table++1} | ##Se modifica la tabla q_table y se vuelve a llamar al metodo para ver si la modifica realmente
+# |                    | Log To Console | ${q_table} |
+# |                    | Log To Console | ${qlearning.q_table} |
+|                    | Call Method    | ${qlearning}       | inicializar_q_table  | ${q_table} | ## Se vuelve a llamar a la funcion para verificar el else de la misma y que modifique la tabla pasandosela como parametro
+# |                    | Log To Console | ${q_table} |
 |                    | FOR | ${i} | IN RANGE | 3            
 |                    |     FOR | ${j} | IN RANGE | 3
 |                    |         FOR | ${k} | IN RANGE | 4  
-|                    | Should Be Equal    | ${qlearning.q_table[${i}][${j}][${k}]} | ${q_table[${i}][${j}][${k}]}
+|                    | Should Be Equal     | ${qlearning.q_table[${i}][${j}][${k}]} | ${q_table[${i}][${j}][${k}]} | ## Se comprueba elemento a elemento que la tabla luego de ser pasada a la funcion se modifica y almacena correctamente
 |                    | END |
 |                    |     END |
 |                    |         END |
+                  
 
-                        
+
+
+
+
 | Verificar Inicializacion Variables
 |                    | [Arguments]    | ${robot}
 |                    | ${_raspi}=     | Set Variable    | ${True}

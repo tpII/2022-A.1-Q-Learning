@@ -20,9 +20,9 @@
 |                     | Verificar Tiempo Sleep      | ${admines}    | ${40}    | ${24}
 
 *** Test Cases ***
-| QLearning set_params, set_default_params y get_params          | [Documentation] | Testeo al set_params, set_default_params y get_params de la clase Qlearning
-|                                                                | ${qlearning}=         | Get Library Instance        | QLearning
-|                                                                | Verificar Seteo Y Obtencion De Parametros           | ${qlearning}      |
+| QLearning set_params, set_default_params y get_params | [Documentation] | Testeo al set_params, set_default_params y get_params de la clase Qlearning
+|                                                       | ${qlearning}=         | Get Library Instance        | QLearning
+|                                                       | Verificar Seteo Y Obtencion De Parametros           | ${qlearning}      |
 
 *** Test Cases ***
 | QLearning set_default_params  | [Documentation] | Testeo al set_default_params de la clase Qlearning
@@ -38,10 +38,10 @@
 |                               | ${qlearning}=         | Get Library Instance                    | QLearning
 |                               | Verificar Iniciacion De Tabla Q       | ${qlearning}
 
-| Robot __init__    | [Documentation]    | Testeo al constructor de la clase Robot
-|                   | ${robot}           | Get Library Instance                    | Robot
-|                   | Verificar Inicializacion Variables    | ${robot}
+| Robot __init__                | [Documentation]    | Testeo al constructor de la clase Robot
+|                               | ${robot}           | Get Library Instance                    | Robot
+|                               | Verificar Inicializacion Variables    | ${robot}
 
-| Robot calcular_avance    | [Documentation]    | Testeo a la funcion calcular_avance de la clase Robot 
-|                          | ${robot}           | Get Library Instance    | Robot
-|                          | Verificar Calculo De Avance     | ${robot}
+| Robot calcular_avance         | [Documentation]    | Testeo a la funcion calcular_avance de la clase Robot 
+|                               | ${robot}           | Get Library Instance    | Robot
+|                               | Verificar Calculo De Avance     | ${robot}
