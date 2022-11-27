@@ -39,3 +39,7 @@
 | Robot __init__    | [Documentation]    | Testeo al constructor de la clase Robot
 |                   | ${robot}           | Get Library Instance                    | Robot
 |                   | Verificar Inicializacion Variables    | ${robot}
+
+| Robot calcular_avance    | [Documentation]    | Testeo a la funcion calcular_avance de la clase Robot 
+|                          | ${robot}           | Get Library Instance    | Robot
+|                          | Verificar Calculo De Avance     | ${robot}

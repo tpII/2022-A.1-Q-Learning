@@ -1,6 +1,8 @@
 *** Settings ***
 | Documentation    | Archivo de fuente, contiene variables y metodos
 | Library          | DateTime
+Library    String
+Library    Collections
 
 *** Keywords ***
 | Verificar Pines    
@@ -122,6 +124,31 @@
 |                    | Should Be Equal    | ${robot.recompensa_avanzar}        | ${4}
 |                    | Should Be Equal    | ${robot.recompensa_retroceder}     | ${-4}
 |                    | Should Be Equal    | ${robot.recompensa_dead}           | ${-4}
-|                    | Should Be Equal    | ${len(${robot.state})}    | ${2}
+|                    | ${resultado}=      | Evaluate    | len(${robot.state})
+|                    | Should Be Equal    | ${resultado}    | ${2}
 |                    | Should Be Equal    | ${robot.state[0]}      | ${0}
 |                    | Should Be Equal    | ${robot.state[1]}      | ${2}
+
+| Verificar Calculo De Avance
+|                            | [Arguments]    | ${robot}
+#|                            | ${vector}
+#|                            | FOR | ${i} | IN RANGE | 2
+#|                            |     Append To List    | ${vector}     | ${i}
+#|                            | END
+#|                            | Log To Console    | ${vector}
+#|                            | Log To Console    | ${vector[0]}
+|                            | ${robot.encoders}=     | Create List    | ${0}    | ${0}
+|                            | ${encoders}=           | Create List    | ${1}    | ${0}
+|                            | Log To Console   | ${robot.encoders}
+|                            | ${resultado}=    | Call Method       | ${robot}    | calcular_avance    | ${encoders}
+|                            | Log To Console    | ${resultado}
+|                            | ${robot.encoders}=     | Create List    | ${0}    | ${1}
+|                            | Log To Console   | ${robot.encoders}
+|                            | ${resultado}=    | Call Method       | ${robot}    | calcular_avance    | ${robot.encoders}
+|                            | Log To Console    | ${resultado}
+|                            | ${robot.encoders}=     | Create List    | ${1}    | ${1}
+|                            | Log To Console   | ${robot.encoders}
+|                            | ${resultado}=    | Call Method       | ${robot}    | calcular_avance    | ${robot.encoders}
+|                            | Log To Console    | ${resultado}
+#|                            | ${resultado}=    | Call Method       | ${robot}    | calcular_avance    | ${robot.encoders}
+|                            | Should Be Equal  | ${resultado}    | ${0}
