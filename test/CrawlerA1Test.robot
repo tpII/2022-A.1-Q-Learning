@@ -18,7 +18,6 @@
 |                     | Verificar Calculo Angulo    | ${admines}    | ${0}    | ${23}
 |                     | Verificar Tiempo Sleep      | ${admines}    | ${40}    | ${24}
 
-
 *** Test Cases ***
 | QLearning set_params, set_default_params y get_params          | [Documentation] | Testeo al set_params, set_default_params y get_params de la clase Qlearning
 |                                                                | ${qlearning}=         | Get Library Instance        | QLearning
@@ -33,3 +32,9 @@
 | QLearning get_params          | [Documentation] | Testeo al get_params de la clase Qlearning
 |                               | ${qlearning}=         | Get Library Instance                    | QLearning
 |                               | Verificar Obtencion De Parametros           | ${qlearning}      | 
+
+*** Test Cases ***
+| QLearning inicializar_q_table | [Documentation] | Testeo al inicializar_q_table con valores por defecto y con valores predeterminados
+|                               | ${qlearning}=         | Get Library Instance                    | QLearning
+|                               | Verificar Iniciacion De Tabla Q       | ${qlearning}
+                             

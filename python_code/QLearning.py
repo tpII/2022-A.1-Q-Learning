@@ -129,7 +129,6 @@ class QLearning():
 			assert q_table.shape == (self.STATE_SIZE + (self.ACTIONS,)) # Verificar que el tamaño de la tabla es correcto
 			self.q_table = q_table
 
-
 	def entrenar(self):
 		'''
 			Función que se encarga de realizar la lógica de entrenamiento
