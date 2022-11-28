@@ -26,7 +26,6 @@
 |                       | ${qlearning}=         | Get Library Instance                    | QLearning
 |                       | Verificar Iniciacion De Variables De Entrenamiento     | ${qlearning}  
 
-
 | QLearning inicializar_q_table | [Documentation] | Testeo al inicializar_q_table con valores por defecto y con valores predeterminados
 |                               | ${qlearning}=         | Get Library Instance                    | QLearning
 |                               | Verificar Iniciacion De Tabla Q       | ${qlearning}

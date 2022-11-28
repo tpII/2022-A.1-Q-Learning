@@ -130,24 +130,43 @@ Verificar Iniciacion De Variables De Entrenamiento
 
 | Verificar Calculo De Avance
 |                            | [Arguments]    | ${robot}
-#|                            | ${vector}
-#|                            | FOR | ${i} | IN RANGE | 2
-#|                            |     Append To List    | ${vector}     | ${i}
-#|                            | END
-#|                            | Log To Console    | ${vector}
-#|                            | Log To Console    | ${vector[0]}
-|                            | ${robot.encoders}=     | Create List    | ${0}    | ${0}
-|                            | ${encoders}=           | Create List    | ${1}    | ${0}
-|                            | Log To Console   | ${robot.encoders}
-|                            | ${resultado}=    | Call Method       | ${robot}    | calcular_avance    | ${encoders}
-|                            | Log To Console    | ${resultado}
-|                            | ${robot.encoders}=     | Create List    | ${0}    | ${1}
-|                            | Log To Console   | ${robot.encoders}
-|                            | ${resultado}=    | Call Method       | ${robot}    | calcular_avance    | ${robot.encoders}
-|                            | Log To Console    | ${resultado}
-|                            | ${robot.encoders}=     | Create List    | ${1}    | ${1}
-|                            | Log To Console   | ${robot.encoders}
-|                            | ${resultado}=    | Call Method       | ${robot}    | calcular_avance    | ${robot.encoders}
-|                            | Log To Console    | ${resultado}
-#|                            | ${resultado}=    | Call Method       | ${robot}    | calcular_avance    | ${robot.encoders}
-|                            | Should Be Equal  | ${resultado}    | ${0}
+| #Primero se testea el caso donde la lectura sea de avance
+|                            | ${robot.encoders}=     | Create List    | ${0}        | ${0}    | #Se inicializa la lectura anterior en [0,0]
+|                            | ${encoders}=           | Create List    | ${0}        | ${0}    | #La lectura actual es [0,0]
+|                            | ${resultado}=          | Call Method    | ${robot}    | calcular_avance    | ${encoders}    | #Llama a la funcion que calcula el avance
+|                            | Should Be Equal        | ${resultado}   | ${0}        | #Como la lectura anterior coincide con la actual la funcion deberia retornar 0
+|                            | ${encoders}=           | Create List    | ${1}        | ${0}    | #La lectura actual es [1,0]
+|                            | ${resultado}=          | Call Method    | ${robot}    | calcular_avance    | ${encoders}
+|                            | Should Be Equal        | ${resultado}   | ${4}        | #Como la lectura anterior era [0,0] y la actual es [1,0] significa que el robot avanzo, por lo tanto la funcion deberia retornar el valor de la recompensa (4)
+|                            | ${encoders}=           | Create List    | ${1}        | ${0}    | #La lectura actual es [1,0]
+|                            | ${resultado}=          | Call Method    | ${robot}    | calcular_avance    | ${encoders}
+|                            | Should Be Equal        | ${resultado}   | ${0}        | #Como la lectura anterior coincide con la actual la funcion deberia retornar 0
+|                            | ${encoders}=           | Create List    | ${1}        | ${1}    | #La lectura actual es [1,1]
+|                            | ${resultado}=          | Call Method    | ${robot}    | calcular_avance    | ${encoders}
+|                            | Should Be Equal        | ${resultado}   | ${0}        | #Dado que la lectura actual es [1,1] la funcion deberia retornar 0
+|                            | ${encoders}=           | Create List    | ${0}        | ${1}    | #La lectura actual es [0,1]
+|                            | ${resultado}=          | Call Method    | ${robot}    | calcular_avance    | ${encoders}
+|                            | Should Be Equal        | ${resultado}   | ${0}        | #Como la lectura anterior era [1,1] la funcion deberia retornar 0
+|                            | ${encoders}=           | Create List    | ${0}        | ${1}    | #La lectura actual es [0,1]
+|                            | ${resultado}=          | Call Method    | ${robot}    | calcular_avance    | ${encoders}
+|                            | Should Be Equal        | ${resultado}   | ${0}        | #Como la lectura actual coincide con la anterior, la funcion debe retornar 0
+| #Ahora se testea el caso donde la lectura sea de retroceso
+|                            | ${robot.encoders}=     | Create List    | ${0}        | ${0}    | #Se inicializa la lectura anterior en [0,0]
+|                            | ${encoders}=           | Create List    | ${0}        | ${0}    | #La lectura actual es [0,0]
+|                            | ${resultado}=          | Call Method    | ${robot}    | calcular_avance    | ${encoders}    | #Llama a la funcion que calcula el avance
+|                            | Should Be Equal        | ${resultado}   | ${0}        | #Como la lectura anterior coincide con la actual la funcion deberia retornar 0
+|                            | ${encoders}=           | Create List    | ${0}        | ${1}    | #La lectura actual es [0,1]
+|                            | ${resultado}=          | Call Method    | ${robot}    | calcular_avance    | ${encoders}
+|                            | Should Be Equal        | ${resultado}   | ${-4}        | #Como la lectura anterior era [0,0] y la actual es [0,1] significa que el robot retrocedio, por lo tanto la funcion deberia retornar el valor de la recompensa (-4)
+|                            | ${encoders}=           | Create List    | ${0}        | ${1}    | #La lectura actual es [0,1]
+|                            | ${resultado}=          | Call Method    | ${robot}    | calcular_avance    | ${encoders}
+|                            | Should Be Equal        | ${resultado}   | ${0}        | #Como la lectura anterior coincide con la actual la funcion deberia retornar 0
+|                            | ${encoders}=           | Create List    | ${1}        | ${1}    | #La lectura actual es [1,1]
+|                            | ${resultado}=          | Call Method    | ${robot}    | calcular_avance    | ${encoders}
+|                            | Should Be Equal        | ${resultado}   | ${0}        | #Dado que la lectura actual es [1,1] la funcion deberia retornar 0
+|                            | ${encoders}=           | Create List    | ${1}        | ${0}    | #La lectura actual es [1,0]
+|                            | ${resultado}=          | Call Method    | ${robot}    | calcular_avance    | ${encoders}
+|                            | Should Be Equal        | ${resultado}   | ${0}        | #Como la lectura anterior era [1,1] la funcion deberia retornar 0
+|                            | ${encoders}=           | Create List    | ${1}        | ${0}    | #La lectura actual es [1,0]
+|                            | ${resultado}=          | Call Method    | ${robot}    | calcular_avance    | ${encoders}
+|                            | Should Be Equal        | ${resultado}   | ${0}        | #Como la lectura actual coincide con la anterior, la funcion debe retornar 0
