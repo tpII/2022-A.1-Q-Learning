@@ -156,7 +156,7 @@ class QLearning():
 
 		# Obtener del agente el estado inicial
 		state = self.robot.reset()
-		self.spyState = state 	#Variable spia para verficar el valor del state en ejecucion
+		self.spyStateInicial = state 	#Variable spia para verficar el valor del state en ejecucion
 		if test:
 			testContador = 0
 
@@ -214,17 +214,17 @@ class QLearning():
 				max_future_q = np.max(self.q_table[new_state]) 	# Mejor valor Q futuro
 				current_q = self.q_table[state + (action, )]	# Valor Q actual
 				
-				self.spyq_table=self.q_table[new_state]
-				self.spymax_future_q = np.max(self.q_table[new_state])
-				self.spycurrent_q = self.q_table[state + (action, )]
-				self.spynew_q= (1 - self.LEARNING_RATE) * current_q + self.LEARNING_RATE * (reward + self.DISCOUNT * max_future_q)
-
+				self.spyQ_table=self.q_table[new_state]
+				self.spyMax_future_q = np.max(self.q_table[new_state])
+				self.spyCurrent_q = self.q_table[state + (action, )]
+				self.spyNew_q= (1 - self.LEARNING_RATE) * current_q + self.LEARNING_RATE * (reward + self.DISCOUNT * max_future_q)
+				self.spyReward= reward
+				self.spyStateAct = state
 				# Ecuacion de aprendizaje
 				new_q = (1 - self.LEARNING_RATE) * current_q + self.LEARNING_RATE * (reward + self.DISCOUNT * max_future_q) 
 				
 				# Actualizacion del valor de la tabla
 				self.q_table[state + (action,)] = new_q
-
 				# Debug
 				# string = "State: {} - Action {} - New_State {} - Reward: {}".format(state, action,new_state,reward)
 				# self.app.js.console.log(string)
