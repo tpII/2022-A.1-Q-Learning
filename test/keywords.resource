@@ -126,16 +126,15 @@ Verificar Entrenamiento
 
 Verificar Entrenamiento Con Spies
 |                    | [Arguments]    | ${qlearning} | ##Se testea la funcion entrenamiento en modo caja negra con 30 iteraciones
-|                    | Call Method    | ${qlearning}   | inicializar_q_table | 
+|                    | Call Method    | ${qlearning}    | inicializar_q_table | 
 |                    | ${qtableTest} = | Call Method    | ${qlearning}   | inicializar_q_tableTest |
-|                    | Log To Console | ${qtableTest} |
-|                    | ${EjecucionesAlEntrenar} = | Set Variable | ${10}
+|                    | ${EjecucionesAlEntrenar} = | Set Variable | ${1}
 |                    | ${qtableEntrenada}= | Call Method    | ${qlearning}   | entrenar | ${True} | ${EjecucionesAlEntrenar}
-|                    | Should Be Equal    | ${qlearning.spyState[0]} | ${0}    | ##Se verifica que el entrenar arranca en la posicion inicial dada por robot.reset
-|                    | Should Be Equal    | ${qlearning.spyState[1]} | ${2}
+|                    | Should Be Equal     | ${qlearning.spyStateInicial[0]} | ${0}    | ##Se verifica que el entrenar arranca en la posicion inicial dada por robot.reset
+|                    | Should Be Equal     | ${qlearning.spyStateInicial[1]} | ${2}
 |                    | ${VerificarAction}= | Evaluate   | ${qlearning.spyAction} < ${4} and ${qlearning.spyAction} >= ${0}
 |                    |  Should be True |  ${VerificarAction}     |
-|                    | ${VerificarEpsilon}= | Evaluate   | ${qlearning.spyEpsilon} >= ${0} and ${qlearning.spyEpsilon} <= ${1}    | ##Verifica que los randoms esten dando valores entre 0 y 1
+|                    | ${VerificarEpsilon}=  | Evaluate   | ${qlearning.spyEpsilon} >= ${0} and ${qlearning.spyEpsilon} <= ${1}    | ##Verifica que los randoms esten dando valores entre 0 y 1
 |                    | ${VerificarEleccion}= | Evaluate   | ${qlearning.spyEleccion} >= ${0} and ${qlearning.spyEleccion} <= ${1} | ##Verifica que los randoms esten dando valores entre 0 y 1
 |                    |  Should be True |  ${VerificarEpsilon}     |
 |                    |  Should be True |  ${VerificarEleccion}     |
@@ -144,8 +143,20 @@ Verificar Entrenamiento Con Spies
 |                    | ELSE                     
 |                    |  Should Not Be True    | ${qlearning.spyEleccionTrue}
 |                    | END 
+
+Verificar La Asignacion De Tabla Q En Entrenar
+|                    | [Arguments]    | ${qlearning} | ##Se testea la funcion entrenamiento en 4 loops de 20 entrneamientos verificando que se realice de manera correcta la ecuacion de aprendizaje y el valor se almacene correctamente en la nueva tabla Q
+|                    | ${EjecucionesAlEntrenar} = | Set Variable | ${20}
+|                    | Call Method    | ${qlearning}   | inicializar_q_table | 
+|                    | FOR | ${i} | IN RANGE | 4 | ## Se entrena 20 veces por cada loop verificando que la tabla se actualice con el nuevo valor Q obtenido de la ecuacion de manera correcta en cada sesion de entrenamiento
+|                    | ${qtableEntrenada}= | Call Method    | ${qlearning}   | entrenar | ${True} | ${EjecucionesAlEntrenar}
 |                    | ${VerificarEpsilonCuenta} | Evaluate    |  ${qlearning.EPSILON}-(${EjecucionesAlEntrenar}*${qlearning.LEARNING_EPSILON}) | ##Verifico que se realiza correctamente el decremento del porcetaje de Explotacion/Exploracion
 |                    | Should Be Equal As Numbers | ${VerificarEpsilonCuenta} | ${qlearning.spyEpsilon} |
+|                    | ${NuevoValorTablaQ} = |    Evaluate |  (1 - ${qlearning.LEARNING_RATE}) * ${qlearning.spyCurrent_q} + ${qlearning.LEARNING_RATE} * (${qlearning.spyReward} + ${qlearning.DISCOUNT} * ${qlearning.spyMax_future_q}) | 
+|                    | ${ValorEnTablaQ}= | Set Variable | ${qtableEntrenada[${qlearning.spyStateAct[0]},${qlearning.spyStateAct[1]},${qlearning.spyAction}]}
+|                    | Should Be Equal    |   ${NuevoValorTablaQ} | ${ValorEnTablaQ} | ##Verifico que el nuevo valor obtenido del aprendizaje se actualice correctamente en la tabla
+|                    | END 
+
 
 | Verificar Inicializacion Variables
 |                    | [Arguments]    | ${robot}

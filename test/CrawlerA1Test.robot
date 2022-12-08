@@ -41,6 +41,10 @@
 |                                     | Verificar Entrenamiento Con Spies    | ${qlearning}
                     
 
+| Verificar La Asignacion De Tabla Q En Entrenar | [Documentation]            | Testeo a la funcion entrenar verificando ecuacion Qlearning y asignacion en tabla Q utilizando spias de la clase Qlearning
+|                                     | ${qlearning}               | Get Library Instance    | Qlearning
+|                                     | Verificar Entrenamiento Con Spies    | ${qlearning}
+
 | Robot __init__                | [Documentation]    | Testeo al constructor de la clase Robot
 |                               | ${robot}           | Get Library Instance                    | Robot
 |                               | Verificar Inicializacion Variables    | ${robot}
