@@ -140,7 +140,7 @@ class QLearning():
 			q_tableTest = np.zeros(shape=(self.STATE_SIZE + (self.ACTIONS,)))
 		return q_tableTest 
 
-	def entrenar(self, test = False):
+	def entrenar(self, test = False, TestContadorFin = 100):
 		'''
 			Función que se encarga de realizar la lógica de entrenamiento
 
@@ -155,6 +155,7 @@ class QLearning():
 
 		# Obtener del agente el estado inicial
 		state = self.robot.reset()
+		self.spyState = state 	#Variable spia para verficar el valor del state en ejecucion
 		if test:
 			testContador = 0
 
@@ -162,7 +163,7 @@ class QLearning():
 		self.semaforo_done.acquire()
 		while not self.done:
 			if test: 
-				if testContador > 50 :
+				if testContador > TestContadorFin :
 					break
 			self.semaforo_done.release()
 
@@ -178,13 +179,18 @@ class QLearning():
 				eleccion = random.random()
 				if eleccion < epsilon:
 					action = random.randint(0,3)	# Accion aleatoria
+					self.spyEleccionTrue = True
 				else:
 					action = np.argmax(self.q_table[state])	# Mejor acción segun el modelo
+					self.spyEleccionTrue = False
+
+				self.spyEleccion = eleccion
+				self.spyAction = action
+				self.spyEpsilon = epsilon
 
 				# Decremento de la aleatoriedad
 				if epsilon>self.MIN_EPSILON:
 					epsilon-=self.LEARNING_EPSILON
-
 				# Realizar la accion en el agente y recibir nuevo estado, 
 				# recompensa y si realizo movimiento no permitido
 				new_state,reward,dead = self.robot.step(action)
@@ -206,6 +212,11 @@ class QLearning():
 				# Calculos relacionados a la ecuacion utilizada por el modelo QLearning
 				max_future_q = np.max(self.q_table[new_state]) 	# Mejor valor Q futuro
 				current_q = self.q_table[state + (action, )]	# Valor Q actual
+				
+				self.spyq_table=self.q_table[new_state]
+				self.spymax_future_q = np.max(self.q_table[new_state])
+				self.spycurrent_q = self.q_table[state + (action, )]
+				self.spynew_q= (1 - self.LEARNING_RATE) * current_q + self.LEARNING_RATE * (reward + self.DISCOUNT * max_future_q)
 
 				# Ecuacion de aprendizaje
 				new_q = (1 - self.LEARNING_RATE) * current_q + self.LEARNING_RATE * (reward + self.DISCOUNT * max_future_q) 
@@ -221,16 +232,14 @@ class QLearning():
 				state = new_state
 
 				# Actualizacion de la tabla mediante manejo del DOM
-<<<<<<< HEAD
-				#self.app.js.update_table(list(self.q_table.flatten()),list(state))
 
-=======
-			
 				if test:
 					testContador = testContador+1
+					if testContador > TestContadorFin:
+						break
 				else:
 					self.app.js.update_table(list(self.q_table.flatten()),list(state))
->>>>>>> 4035fc006c104988c4c02796e187f7b321629ace
+
 			self.semaforo_done.release()
 		self.semaforo_done.release()
 

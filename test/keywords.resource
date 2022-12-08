@@ -112,7 +112,7 @@ Verificar Entrenamiento
 |                    | Call Method    | ${qlearning}   | inicializar_q_table | 
 |                    | ${qtableTest} = | Call Method    | ${qlearning}   | inicializar_q_tableTest |
 |                    | Log To Console | ${qtableTest} |
-|                    | ${qtableEntrenada}= | Call Method    | ${qlearning}   | entrenar | ${True} |
+|                    | ${qtableEntrenada}= | Call Method    | ${qlearning}   | entrenar | ${True} | ${100}
 |                    | Log To Console | ${qtableEntrenada}
 |                    | ${resultado} | Set Variable | ${True}           
 |                    | FOR | ${i}  | IN RANGE | 3  
@@ -129,10 +129,23 @@ Verificar Entrenamiento Con Spies
 |                    | Call Method    | ${qlearning}   | inicializar_q_table | 
 |                    | ${qtableTest} = | Call Method    | ${qlearning}   | inicializar_q_tableTest |
 |                    | Log To Console | ${qtableTest} |
-|                    | ${qtableEntrenada}= | Call Method    | ${qlearning}   | entrenar | ${True} |
-
-
-
+|                    | ${EjecucionesAlEntrenar} = | Set Variable | ${10}
+|                    | ${qtableEntrenada}= | Call Method    | ${qlearning}   | entrenar | ${True} | ${EjecucionesAlEntrenar}
+|                    | Should Be Equal    | ${qlearning.spyState[0]} | ${0}    | ##Se verifica que el entrenar arranca en la posicion inicial dada por robot.reset
+|                    | Should Be Equal    | ${qlearning.spyState[1]} | ${2}
+|                    | ${VerificarAction}= | Evaluate   | ${qlearning.spyAction} < ${4} and ${qlearning.spyAction} >= ${0}
+|                    |  Should be True |  ${VerificarAction}     |
+|                    | ${VerificarEpsilon}= | Evaluate   | ${qlearning.spyEpsilon} >= ${0} and ${qlearning.spyEpsilon} <= ${1}    | ##Verifica que los randoms esten dando valores entre 0 y 1
+|                    | ${VerificarEleccion}= | Evaluate   | ${qlearning.spyEleccion} >= ${0} and ${qlearning.spyEleccion} <= ${1} | ##Verifica que los randoms esten dando valores entre 0 y 1
+|                    |  Should be True |  ${VerificarEpsilon}     |
+|                    |  Should be True |  ${VerificarEleccion}     |
+|                    | IF | ${qlearning.spyEleccion} < ${qlearning.spyEpsilon} | ##Se Verifica que este entrando correctamente al if para elegir  
+|                    |  Should Be True    | ${qlearning.spyEleccionTrue}
+|                    | ELSE                     
+|                    |  Should Not Be True    | ${qlearning.spyEleccionTrue}
+|                    | END 
+|                    | ${VerificarEpsilonCuenta} | Evaluate    |  ${qlearning.EPSILON}-(${EjecucionesAlEntrenar}*${qlearning.LEARNING_EPSILON}) | ##Verifico que se realiza correctamente el decremento del porcetaje de Explotacion/Exploracion
+|                    | Should Be Equal As Numbers | ${VerificarEpsilonCuenta} | ${qlearning.spyEpsilon} |
 
 | Verificar Inicializacion Variables
 |                    | [Arguments]    | ${robot}
