@@ -86,7 +86,7 @@ Verificar Iniciacion De Tabla Q
 |                    |         END |
 |                    | Set Suite Variable | ${q_table} | ${qlearning.q_table} | ## Se copia la tabla en una variable local para tener una copia que modificar
 |                    | ${q_table}= |  set variable | ${q_table++1} | ##Se modifica la tabla q_table y se vuelve a llamar al metodo para ver si la modifica realmente
-# |                    | Log To Console | ${q_table} |
+|                    | Log To Console | ${q_table} |
 # |                    | Log To Console | ${qlearning.q_table} |
 |                    | Call Method    | ${qlearning}       | inicializar_q_table  | ${q_table} | ## Se vuelve a llamar a la funcion para verificar el else de la misma y que modifique la tabla pasandosela como parametro
 # |                    | Log To Console | ${q_table} |
@@ -107,9 +107,36 @@ Verificar Iniciacion De Variables De Entrenamiento
 |                    | Should Be Equal  | ${qlearning.STATE_SIZE} | ${SIZE}	 |         ## Se verifica que el string que define el tamano sea correcto
 
 
+Verificar Entrenamiento
+|                    | [Arguments]    | ${qlearning} | ##Se testea la funcion entrenamiento en modo caja negra con 30 iteraciones
+|                    | Call Method    | ${qlearning}   | inicializar_q_table | 
+|                    | ${qtableTest} = | Call Method    | ${qlearning}   | inicializar_q_tableTest |
+|                    | Log To Console | ${qtableTest} |
+|                    | ${qtableEntrenada}= | Call Method    | ${qlearning}   | entrenar | ${True} |
+|                    | Log To Console | ${qtableEntrenada}
+|                    | ${resultado} | Set Variable | ${True}           
+|                    | FOR | ${i}  | IN RANGE | 3  
+|                    |     FOR | ${j} | IN RANGE | 3
+|                    |         FOR | ${k} | IN RANGE | 4  
+|                    | ${resultado}= | Evaluate    | ${resultado} and (${qtableTest[${i}][${j}][${k}]} == ${qtableEntrenada[${i}][${j}][${k}]}) | ##Se compara todos los valores de la tabla para verificar que alguno de los mismos sea distintos, es decir, entreno
+|                    | END |
+|                    |     END |
+|                    |         END |
+|                    | Should Not Be True | ${resultado}
+
+Verificar Entrenamiento Con Spies
+|                    | [Arguments]    | ${qlearning} | ##Se testea la funcion entrenamiento en modo caja negra con 30 iteraciones
+|                    | Call Method    | ${qlearning}   | inicializar_q_table | 
+|                    | ${qtableTest} = | Call Method    | ${qlearning}   | inicializar_q_tableTest |
+|                    | Log To Console | ${qtableTest} |
+|                    | ${qtableEntrenada}= | Call Method    | ${qlearning}   | entrenar | ${True} |
+
+
+
+
 | Verificar Inicializacion Variables
 |                    | [Arguments]    | ${robot}
-|                    | ${_raspi}=     | Set Variable    | ${True}
+|                    | ${_raspi}=     | Set Variable    | ${True} |
 |                    | Variable Should Not Exist    | ${robot.adminES}    | La variable adminES existe
 |                    | Should Be Equal    | ${robot.angulos[0]}    | ${0}
 |                    | Should Be Equal    | ${robot.angulos[1]}    | ${40}
