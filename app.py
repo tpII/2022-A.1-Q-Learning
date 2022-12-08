@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, g
+from flask import Flask, render_template, request, redirect, url_for, g, send_from_directory
 from flask_sqlalchemy import SQLAlchemy  
 import jyserver.Flask as jsf
 import numpy as np
@@ -174,6 +174,27 @@ def index():
 		App.alertas = []
 
 	return App.render(render_template('index.html', data=data))
+
+@app.route("/test",methods=["GET"])
+def test():
+	data={
+		'titulo': "Crawler Tests"
+	}
+
+	return App.render(render_template('tests.html',data= data))
+
+@app.route("/test/coverage",methods=["GET"])
+def coverage():
+	data={
+		'titulo': "Crawler Tests"
+	}
+
+	return App.render(render_template('./htmlcov/index.html',data= data))
+
+@app.route("/test/<path:path>")
+def prueba(path):
+	return send_from_directory('templates/htmlcov', path)
+
 
 @app.route("/actualizar_parametros", methods=["POST"])
 def actualizar_parametros():
