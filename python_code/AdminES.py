@@ -53,30 +53,30 @@ class AdminES:
 		value = self.pi.read(pin)
 		return value
 		
-	def avanzar(self):
-		'''
-			Función que realiza un paso del crawler-bot y luego detiene los motores
-		'''
+	# def avanzar(self):
+	# 	'''
+	# 		Función que realiza un paso del crawler-bot y luego detiene los motores
+	# 	'''
 
-		# Luego de cada movimiento de un servo se realiza la lectura de los encoders
-		self.mover_servo(self.pin_servo1, 35) 
-		print("Encoder 1: ", self.leer_encoder(self.pin_encoder1))
-		print("Encoder 2: ", self.leer_encoder(self.pin_encoder2))
-		self.mover_servo(self.pin_servo2, 35)
-		print("Encoder 1: ", self.leer_encoder(self.pin_encoder1))
-		print("Encoder 2: ", self.leer_encoder(self.pin_encoder2))
-		self.mover_servo(self.pin_servo1, 0)
-		print("Encoder 1: ", self.leer_encoder(self.pin_encoder1))
-		print("Encoder 2: ", self.leer_encoder(self.pin_encoder2))
-		self.mover_servo(self.pin_servo2, 80)
-		print("Encoder 1: ", self.leer_encoder(self.pin_encoder1))
-		print("Encoder 2: ", self.leer_encoder(self.pin_encoder2))
+	# 	# Luego de cada movimiento de un servo se realiza la lectura de los encoders
+	# 	self.mover_servo(self.pin_servo1, 35) 
+	# 	print("Encoder 1: ", self.leer_encoder(self.pin_encoder1))
+	# 	print("Encoder 2: ", self.leer_encoder(self.pin_encoder2))
+	# 	self.mover_servo(self.pin_servo2, 35)
+	# 	print("Encoder 1: ", self.leer_encoder(self.pin_encoder1))
+	# 	print("Encoder 2: ", self.leer_encoder(self.pin_encoder2))
+	# 	self.mover_servo(self.pin_servo1, 0)
+	# 	print("Encoder 1: ", self.leer_encoder(self.pin_encoder1))
+	# 	print("Encoder 2: ", self.leer_encoder(self.pin_encoder2))
+	# 	self.mover_servo(self.pin_servo2, 80)
+	# 	print("Encoder 1: ", self.leer_encoder(self.pin_encoder1))
+	# 	print("Encoder 2: ", self.leer_encoder(self.pin_encoder2))
 
-		# Posicionar en estado de reposo
-		self.mover_servo(self.pin_servo1, 10)
-		self.mover_servo(self.pin_servo2, 85)
-		self.pi.set_servo_pulsewidth(self.pin_servo1, 0) 
-		self.pi.set_servo_pulsewidth(self.pin_servo2, 0)
+	# 	# Posicionar en estado de reposo
+	# 	self.mover_servo(self.pin_servo1, 10)
+	# 	self.mover_servo(self.pin_servo2, 85)
+	# 	self.pi.set_servo_pulsewidth(self.pin_servo1, 0) 
+	# 	self.pi.set_servo_pulsewidth(self.pin_servo2, 0)
 
 	def reposo(self):
 		'''

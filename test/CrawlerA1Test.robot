@@ -48,3 +48,7 @@
 | Robot step                    | [Documentation]    | Testeo a la funcion step de la clase Robot 
 |                               | ${robot}           | Get Library Instance    | Robot
 |                               | Verificar Step     | ${robot}
+
+| QLearning avanzar             | [Documentation]    | Testeo a la funcion avanzar de la clase Qlearning
+|                               | ${qlearning}       | Get Library Instance    | QLearning
+|                               | Verificar Avanzar  | ${qlearning}

@@ -253,3 +253,21 @@ Verificar Entrenamiento Con Spies
 |                            | Should Be Equal    | ${state[1]}    |    ${0}
 |                            | Should Be True     | ${dead}
 |                            | Should Be Equal    | ${reward}    | ${robot.recompensa_dead}
+
+| Verificar Avanzar
+|                            | [Arguments]        | ${qlearning}
+|                            | ${tablaAvance}=    | Call Method    | ${qlearning}    | inicializar_q_tableTest    | ${True}
+|                            | FOR                | ${i}           | IN RANGE        | 4
+|                            | Call Method        | ${qlearning}   | avanzar         | ${True}
+|                            | Should Be Equal    | ${qlearning.spyState[0]}    | ${1}
+|                            | Should Be Equal    | ${qlearning.spyState[1]}    | ${2}
+|                            | Call Method        | ${qlearning}   | avanzar    | ${True}    | ${qlearning.robot.state}
+|                            | Should Be Equal    | ${qlearning.spyState[0]}    | ${1}
+|                            | Should Be Equal    | ${qlearning.spyState[1]}    | ${1}
+|                            | Call Method        | ${qlearning}   | avanzar    | ${True}    | ${qlearning.robot.state}
+|                            | Should Be Equal    | ${qlearning.spyState[0]}    | ${0}
+|                            | Should Be Equal    | ${qlearning.spyState[1]}    | ${1}
+|                            | Call Method        | ${qlearning}   | avanzar    | ${True}    | ${qlearning.robot.state}
+|                            | Should Be Equal    | ${qlearning.spyState[0]}    | ${0}
+|                            | Should Be Equal    | ${qlearning.spyState[1]}    | ${2}
+|                            | END
