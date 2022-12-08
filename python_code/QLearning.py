@@ -129,7 +129,18 @@ class QLearning():
 			assert q_table.shape == (self.STATE_SIZE + (self.ACTIONS,)) # Verificar que el tamaño de la tabla es correcto
 			self.q_table = q_table
 
-	def entrenar(self):
+
+	def inicializar_q_tableTest(self, avanzar = False):
+		'''
+			Inicilizador de la tabla q con valores para testear
+		'''
+		if avanzar:
+			q_tableTest = np.array([[[1, 1, 1, 1], [0, 0, 0, 0], [0, 0, 0, 0]], [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]], [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]])
+		else:
+			q_tableTest = np.zeros(shape=(self.STATE_SIZE + (self.ACTIONS,)))
+		return q_tableTest 
+
+	def entrenar(self, test = False):
 		'''
 			Función que se encarga de realizar la lógica de entrenamiento
 
@@ -144,10 +155,15 @@ class QLearning():
 
 		# Obtener del agente el estado inicial
 		state = self.robot.reset()
+		if test:
+			testContador = 0
 
 		# Bucle principal de entrenamiento
 		self.semaforo_done.acquire()
 		while not self.done:
+			if test: 
+				if testContador > 50 :
+					break
 			self.semaforo_done.release()
 
 			dead = False	# Variable que indica si el robot realizó un movimiento no permitido
@@ -205,15 +221,24 @@ class QLearning():
 				state = new_state
 
 				# Actualizacion de la tabla mediante manejo del DOM
+<<<<<<< HEAD
 				#self.app.js.update_table(list(self.q_table.flatten()),list(state))
 
+=======
+			
+				if test:
+					testContador = testContador+1
+				else:
+					self.app.js.update_table(list(self.q_table.flatten()),list(state))
+>>>>>>> 4035fc006c104988c4c02796e187f7b321629ace
 			self.semaforo_done.release()
 		self.semaforo_done.release()
 
 		# Terminar la ejecucion del robot y llevar a un estado de reposo
 		self.robot.finalizar_lectura()
 		self.robot.reposo()
-		self.app.js.update_state(self.robot.reset())	# Actualiza el punto en estado de reposo en la tabla de la interfaz web
+		if not test:
+			self.app.js.update_state(self.robot.reset())	# Actualiza el punto en estado de reposo en la tabla de la interfaz web
 
 		# Retornar la tabla aprendida
 		return self.q_table

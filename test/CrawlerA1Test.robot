@@ -21,7 +21,6 @@
 |                     | Verificar Calculo Angulo    | ${admines}    | ${0}    | ${23}
 |                     | Verificar Tiempo Sleep      | ${admines}    | ${40}    | ${24}
 
-*** Test Cases ***
 | QLearning set_params, set_default_params y get_params | [Documentation] | Testeo al set_params, set_default_params y get_params de la clase Qlearning
 |                                                       | ${qlearning}=         | Get Library Instance        | QLearning
 |                                                       | Verificar Seteo Y Obtencion De Parametros           | ${qlearning}      |
@@ -32,6 +31,11 @@
 | QLearning inicializar_q_table | [Documentation] | Testeo al inicializar_q_table con valores por defecto y con valores predeterminados
 |                               | ${qlearning}=         | Get Library Instance                    | QLearning
 |                               | Verificar Iniciacion De Tabla Q       | ${qlearning}
+
+| QLearning entrenar                | [Documentation]        | Testeo a la funcion entre de la clase Qlearning 
+|                               | ${qlearning}               | Get Library Instance    | Qlearning
+|                               | Verificar Entrenamiento    | ${qlearning}
+
 
 | Robot __init__                | [Documentation]    | Testeo al constructor de la clase Robot
 |                               | ${robot}           | Get Library Instance                    | Robot
