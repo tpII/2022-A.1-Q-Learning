@@ -4,6 +4,8 @@
 | Library            | ../python_code/AdminES.py 
 | Library            | ../python_code/QLearning.py     | ${app}
 | Library            | ../python_code/Robot.py         | ${4}       | ${-4}   | ${-4}
+| Library            | ../app.py
+| Test Timeout       | 10 seconds
 | Resource           | keywords.resource
 
 *** Test Cases ***
@@ -38,3 +40,7 @@
 | Robot calcular_avance         | [Documentation]    | Testeo a la funcion calcular_avance de la clase Robot 
 |                               | ${robot}           | Get Library Instance    | Robot
 |                               | Verificar Calculo De Avance     | ${robot}
+
+| Robot step                    | [Documentation]    | Testeo a la funcion step de la clase Robot 
+|                               | ${robot}           | Get Library Instance    | Robot
+|                               | Verificar Step     | ${robot}

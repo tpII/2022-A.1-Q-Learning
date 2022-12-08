@@ -170,3 +170,59 @@ Verificar Iniciacion De Variables De Entrenamiento
 |                            | ${encoders}=           | Create List    | ${1}        | ${0}    | #La lectura actual es [1,0]
 |                            | ${resultado}=          | Call Method    | ${robot}    | calcular_avance    | ${encoders}
 |                            | Should Be Equal        | ${resultado}   | ${0}        | #Como la lectura actual coincide con la anterior, la funcion debe retornar 0
+
+
+
+| Verificar Step
+|                            | [Arguments]    | ${robot}
+|                            | ${robot.state}    | Create List    | ${0}    | ${2}
+|                            | ${state}    | ${reward}    | ${dead}    | Call Method    | ${robot}    | step    | ${0}
+|                            | Should Be Equal    | ${state[0]}    |    ${0}
+|                            | Should Be Equal    | ${state[1]}    |    ${2}
+|                            | Should Be True     | ${dead}
+|                            | Should Be Equal    | ${reward}    | ${robot.recompensa_dead}
+|                            | ${state}    | ${reward}    | ${dead}    | Call Method    | ${robot}    | step    | ${1}
+|                            | Should Be Equal    | ${state[0]}    |    ${1}
+|                            | Should Be Equal    | ${state[1]}    |    ${2}
+|                            | Should Not Be True     | ${dead}
+|                            | Should Be Equal    | ${reward}    | ${robot.recompensa}
+|                            | ${state}    | ${reward}    | ${dead}    | Call Method    | ${robot}    | step    | ${2}
+|                            | Should Be Equal    | ${state[0]}    |    ${1}
+|                            | Should Be Equal    | ${state[1]}    |    ${1}
+|                            | Should Not Be True     | ${dead}
+|                            | Should Be Equal    | ${reward}    | ${robot.recompensa}
+|                            | ${state}    | ${reward}    | ${dead}    | Call Method    | ${robot}    | step    | ${3}
+|                            | Should Be Equal    | ${state[0]}    |    ${1}
+|                            | Should Be Equal    | ${state[1]}    |    ${2}
+|                            | Should Not Be True     | ${dead}
+|                            | Should Be Equal    | ${reward}    | ${robot.recompensa}
+|                            | ${state}    | ${reward}    | ${dead}    | Call Method    | ${robot}    | step    | ${3}
+|                            | Should Be Equal    | ${state[0]}    |    ${1}
+|                            | Should Be Equal    | ${state[1]}    |    ${2}
+|                            | Should Be True     | ${dead}
+|                            | Should Be Equal    | ${reward}    | ${robot.recompensa_dead}
+|                            | ${state}    | ${reward}    | ${dead}    | Call Method    | ${robot}    | step    | ${2}
+|                            | Should Be Equal    | ${state[0]}    |    ${1}
+|                            | Should Be Equal    | ${state[1]}    |    ${1}
+|                            | Should Not Be True     | ${dead}
+|                            | Should Be Equal    | ${reward}    | ${robot.recompensa}
+|                            | ${state}    | ${reward}    | ${dead}    | Call Method    | ${robot}    | step    | ${2}
+|                            | Should Be Equal    | ${state[0]}    |    ${1}
+|                            | Should Be Equal    | ${state[1]}    |    ${0}
+|                            | Should Not Be True     | ${dead}
+|                            | Should Be Equal    | ${reward}    | ${robot.recompensa}
+|                            | ${state}    | ${reward}    | ${dead}    | Call Method    | ${robot}    | step    | ${2}
+|                            | Should Be Equal    | ${state[0]}    |    ${1}
+|                            | Should Be Equal    | ${state[1]}    |    ${0}
+|                            | Should Be True     | ${dead}
+|                            | Should Be Equal    | ${reward}    | ${robot.recompensa_dead}
+|                            | ${state}    | ${reward}    | ${dead}    | Call Method    | ${robot}    | step    | ${1}
+|                            | Should Be Equal    | ${state[0]}    |    ${2}
+|                            | Should Be Equal    | ${state[1]}    |    ${0}
+|                            | Should Not Be True     | ${dead}
+|                            | Should Be Equal    | ${reward}    | ${robot.recompensa}
+|                            | ${state}    | ${reward}    | ${dead}    | Call Method    | ${robot}    | step    | ${1}
+|                            | Should Be Equal    | ${state[0]}    |    ${2}
+|                            | Should Be Equal    | ${state[1]}    |    ${0}
+|                            | Should Be True     | ${dead}
+|                            | Should Be Equal    | ${reward}    | ${robot.recompensa_dead}
