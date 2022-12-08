@@ -135,7 +135,8 @@ class QLearning():
 			Inicilizador de la tabla q con valores para testear
 		'''
 		if avanzar:
-			q_tableTest = np.array([[[1, 1, 1, 1], [0, 0, 0, 0], [0, 0, 0, 0]], [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]], [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]])
+			q_tableTest = np.array([[[-3.38, -1.6, 0.42, 0.35], [-3.23, -1.50, 0.19, 0.86], [-4.12, 1.91, -3.95,-3.01]], [[0.84, -3.13, 0.78, 0], [1.01, 0.72, 0.47, 0.08], [-0.07, 0.08, 0.78,-1.6]], [[0.36, -3.13, 0, -3.48], [0.36, 0, 0, -1.51], [0.24, 0, -1.51, 0]]])
+			self.q_table= q_tableTest.copy()
 		else:
 			q_tableTest = np.zeros(shape=(self.STATE_SIZE + (self.ACTIONS,)))
 		return q_tableTest 
@@ -239,7 +240,6 @@ class QLearning():
 						break
 				else:
 					self.app.js.update_table(list(self.q_table.flatten()),list(state))
-
 			self.semaforo_done.release()
 		self.semaforo_done.release()
 
@@ -253,19 +253,28 @@ class QLearning():
 		return self.q_table
 
 
-	def avanzar(self):
+	def avanzar(self,test= False,stateTest=None):
 		'''
 			Función que se encarga de utilizar el modelo para que el crawler avance
 		'''
-		# Llevar al robot a un estado inicial
-		state = self.robot.reset()
+		if stateTest is None:
+			# Llevar al robot a un estado inicial
+			state = self.robot.reset()
+		else:
+			state= tuple(stateTest)
 
 		# Bucle principal encargado de realizar el procesamiento
 		while not self.done:
 			action = np.argmax(self.q_table[state])	# Tomar la mejor accion segun el modelo
+			self.spyAction= action
 			state,_,_ = self.robot.step(action)		# Realizar la accion en el agente
-			self.app.js.update_state(state)			# Actualiza el punto en la tabla de la interfaz web
+			self.spyState = state
+			if test:
+				break
+			else:
+				self.app.js.update_state(state)			# Actualiza el punto en la tabla de la interfaz web
 
-		# Llevar al robot a un estado de reposo
-		self.robot.reposo()
-		self.app.js.update_state(self.robot.reset())	# Actualiza el punto en estado de reposo en la tabla de la interfaz web
+		if not test:
+			# Llevar al robot a un estado de reposo
+			self.robot.reposo()
+			self.app.js.update_state(self.robot.reset())	# Actualiza el punto en estado de reposo en la tabla de la interfaz web
