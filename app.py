@@ -4,6 +4,7 @@ import jyserver.Flask as jsf
 import numpy as np
 import time
 import random
+import subprocess
   
 from python_code.QLearning import QLearning
 from python_code.Robot import _raspi
@@ -138,6 +139,16 @@ with app.app_context():
 			db.session.commit()
 
 			self.js.update_table(list(q_table.flatten()), list(self.Q.robot.reset()))
+
+		def ejecutar_tests(self):
+			'''
+				Funcion que ejecuta el script bash que corre los tests y genera
+				los archivos html
+			'''
+			subprocess.run(["bash", "./test/ejecutarTests.bash"])
+			subprocess.run(["coverage", "html", "--include", "*python_code*", "-d", "./templates/htmlcov/"])
+			self.js.resultados_test()
+
 
 
 @app.route('/', methods=['GET'])

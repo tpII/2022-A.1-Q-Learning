@@ -93,6 +93,10 @@ $(function(){
 		$('#menu').removeClass("fadeInRight");
 		$('#menu').addClass("fadeOutRight");
 	})
+
+	$("#TestBoton").click(function() {
+		$("#TestBoton").html("Ejecutando Tests...")
+	})
 })
 
 function desaparecer_alerta(numero){

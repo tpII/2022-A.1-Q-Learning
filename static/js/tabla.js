@@ -49,3 +49,9 @@ function update_state(state){
 	estado.classList.add(x_clases[state[1]]);
 	estado.classList.add(y_clases[state[0]]);
 }
+
+function resultados_test()
+{
+	$("#TestBoton").addClass("hidden")
+	$("#VerResultados").removeClass("hidden");
+}
