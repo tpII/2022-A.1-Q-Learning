@@ -9,7 +9,7 @@
 | Resource           | keywords.resource
 
 *** Test Cases ***
-| AdminEs __init__    | [Documentation]    | Testeo al constructor de la clase AdminES
+| AdminES __init__    | [Documentation]    | Testeo al constructor de la clase AdminES
 |                     | ${admines}=    | Get Library Instance    | AdminES
 |                     | Verificar Pines    | ${admines}
 
@@ -32,16 +32,16 @@
 |                               | ${qlearning}=         | Get Library Instance                    | QLearning
 |                               | Verificar Iniciacion De Tabla Q       | ${qlearning}
 
-| QLearning entrenar                | [Documentation]        | Testeo a la funcion entrenar de la clase Qlearning 
+| QLearning entrenar caja negra    | [Documentation]        | Testeo a la funcion entrenar de la clase Qlearning 
 |                               | ${qlearning}               | Get Library Instance    | Qlearning
 |                               | Verificar Entrenamiento    | ${qlearning}
 
-| Verificar Entrenamiento Con Spies   | [Documentation]            | Testeo a la funcion entrenar utilizando spias de la clase Qlearning
+| QLearning entrenar con spies   | [Documentation]            | Testeo a la funcion entrenar utilizando spias de la clase Qlearning
 |                                     | ${qlearning}               | Get Library Instance    | Qlearning
 |                                     | Verificar Entrenamiento Con Spies    | ${qlearning}
                     
 
-| Verificar La Asignacion De Tabla Q En Entrenar | [Documentation]            | Testeo a la funcion entrenar verificando ecuacion Qlearning y asignacion en tabla Q utilizando spias de la clase Qlearning
+| QLearning entrenar asignacion Tabla Q    | [Documentation]            | Testeo a la funcion entrenar verificando ecuacion Qlearning y asignacion en tabla Q utilizando spias de la clase Qlearning
 |                                     | ${qlearning}               | Get Library Instance    | Qlearning
 |                                     | Verificar Entrenamiento Con Spies    | ${qlearning}
 

@@ -120,7 +120,7 @@ Verificar Entrenamiento
 |                    | Should Not Be True | ${resultado}
 
 Verificar Entrenamiento Con Spies
-|                    | [Arguments]    | ${qlearning} | ##Se testea la funcion entrenamiento en modo caja negra con 30 iteraciones
+|                    | [Arguments]    | ${qlearning} | ##Se testea la funcion entrenamiento con spies
 |                    | Call Method    | ${qlearning}    | inicializar_q_table | 
 |                    | ${qtableTest} = | Call Method    | ${qlearning}   | inicializar_q_tableTest |
 |                    | ${EjecucionesAlEntrenar} = | Set Variable | ${1}
