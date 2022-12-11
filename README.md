@@ -20,8 +20,8 @@
 
 <br>
 
-En este repositorio, se encuentra el trabajo realizado en el transcurso de la materia **Taller de Proyecto II**, perteneciente a la carrera [**Ingeniería en Computación**](http://ic.info.unlp.edu.ar/) de la [**Universidad Nacional de La Plata**](https://unlp.edu.ar/), durante el año 2021. 
-El mismo consiste en un **Robot Crawler** que aprende a desplazarse utilizando un brazo robótico con dos grados de libertad mediante el algoritmo de aprendizaje automático reforzado **Q-Learning**.
+En este repositorio, se encuentra el trabajo realizado en el transcurso de la materia **Taller de Proyecto II**, perteneciente a la carrera [**Ingeniería en Computación**](http://ic.info.unlp.edu.ar/) de la [**Universidad Nacional de La Plata**](https://unlp.edu.ar/), durante el año 2022. 
+El mismo consiste en un **Robot Crawler** que aprende a desplazarse utilizando un brazo robótico con dos grados de libertad mediante el algoritmo de aprendizaje automático reforzado **Q-Learning**. Y test realizados al codigo, siendo el mismo testeado ejecutando en una computadora 
 
 <p align="center"> <img src="resources/Crawler.png" width=50%/> </p>
 
