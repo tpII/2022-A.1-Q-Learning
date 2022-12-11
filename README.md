@@ -1,5 +1,5 @@
 <!-- <p align="center">
-  <img src="resources/logo.png" width=15%/>
+  <img src="Codigo Raspberry/pi/resources/logo.png" width=15%/>
   <br>
   <br>
 </p>
