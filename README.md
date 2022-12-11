@@ -7,7 +7,7 @@
 <h1 align="center"> Proyecto C1 - Robot Crawler - Taller de Proyecto II </h1> -->
 
 <div align="center">
-  <img src="resources/logo.png" width=15%/>
+  <img src="Codigo Raspberry/pi/resources/logo.png" width=15%/>
   <br>
   <h2> Proyecto C1: Robot Crawler - Taller de Proyecto II - UNLP </h2>
 </div>
