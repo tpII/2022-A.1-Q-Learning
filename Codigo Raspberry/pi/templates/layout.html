@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta http_equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="static/images/favicon.ico" type="image/x-icon">
+
+	<!-- Se importan los archivos css comunes a todas las páginas -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/fonts.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/animated_background.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}">
+
+	<!-- Se importa JQuery -->
+	<script src="{{ url_for('static', filename = 'js/jquery.min.js') }}"></script>
+
+	<!-- Importación de archivos css propios de la página -->
+	{% block css_imports%}
+	{% endblock %}
+
+	<!-- Titulo de la página -->
+	<title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+	<!-- Bloque del cuerpo de la página -->
+	{% block body %}
+	{% endblock %}
+	
+	<!-- Importación de archivos js propios de la página -->
+	{% block js_imports%}
+	{% endblock %}
+</body>
+</html>

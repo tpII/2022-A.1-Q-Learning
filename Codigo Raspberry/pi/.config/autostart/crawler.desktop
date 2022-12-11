@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Crawler_Server
+NoDisplay=true
+Exec=sleep 120 && /usr/bin/python3 /home/pi/app.py 2> /home/pi/error_app.txt
+

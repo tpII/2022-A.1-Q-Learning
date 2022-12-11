@@ -1,0 +1,111 @@
+*{
+  font-family: "P052";
+  margin: 0;
+  padding: 0;
+}
+
+html,body{
+  height: 100%; 
+}
+
+body{
+  --header_height: 100px;
+	background-color: #252525;
+
+  /* scrollbar */
+  overflow:auto;
+
+  /*Estilos estándar experimentales (Principalmente Firefox)*/
+  scrollbar-color: rgba(0, 0, 0, .5) rgba(0, 0, 0, 0);
+  scrollbar-width: thin;
+}
+
+/* Estilos para motores Webkit y blink (Chrome, Safari, Opera... )*/
+body::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+body::-webkit-scrollbar:vertical {
+    width:7px;
+}
+body::-webkit-scrollbar-button:increment,body::-webkit-scrollbar-button {
+    display: none;
+} 
+body::-webkit-scrollbar:horizontal {
+    height: 7px;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    border-radius: 20px;
+    border: 1.5px solid black;
+}
+body::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+
+@media (max-width: 1000px){
+  body{
+    --header_height: 60px;
+  }
+}
+
+h1{
+  color: white;
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+  color: #AAAAAA;
+}
+
+.main_div{
+  height: calc(100% - var(--header_height));
+  width: 90%;
+  margin-left: 5%;
+  padding: 5%;
+  box-sizing: border-box;
+}
+
+.bloque_izquierda{
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  box-sizing: border-box;
+
+  float: left;
+}
+.bloque_derecha{
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  box-sizing: border-box;
+
+  float:  right;
+}
+
+.bloque_derecha_superior{
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 10%;
+}
+
+@media (max-width: 1000px){
+  .bloque_izquierda{
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .bloque_derecha{
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .bloque_derecha_superior{
+    margin-top: 5%;
+  }
+}

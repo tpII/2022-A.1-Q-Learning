@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Crawler_Server2
+NoDisplay=true
+Exec=touch /home/pi/dola.txt && python3 app.py > /home/pi/error_app.txt
+
