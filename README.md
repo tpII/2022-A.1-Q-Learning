@@ -1,5 +1,5 @@
 <!-- <p align="center">
-  <img src="resources/logo.png" width=15%/>
+  <img src="[./Codigo Raspberry/pi/resources/](https://github.com/tpII/2022-A.1-Q-Learning/tree/master/Codigo%20Raspberry/pi/resources)logo.png" width=15%/>
   <br>
   <br>
 </p>
@@ -7,7 +7,7 @@
 <h1 align="center"> Proyecto C1 - Robot Crawler - Taller de Proyecto II </h1> -->
 
 <div align="center">
-  <img src="resources/logo.png" width=15%/>
+  <img src="Codigo Raspberry/pi/resources/logo.png" width=15%/>
   <br>
   <h2> Proyecto C1: Robot Crawler - Taller de Proyecto II - UNLP </h2>
 </div>
@@ -23,9 +23,9 @@
 En este repositorio, se encuentra el trabajo realizado en el transcurso de la materia **Taller de Proyecto II**, perteneciente a la carrera [**Ingeniería en Computación**](http://ic.info.unlp.edu.ar/) de la [**Universidad Nacional de La Plata**](https://unlp.edu.ar/), durante el año 2022. 
 El mismo consiste en un **Robot Crawler** que aprende a desplazarse utilizando un brazo robótico con dos grados de libertad mediante el algoritmo de aprendizaje automático reforzado **Q-Learning**. Y test realizados al codigo, siendo el mismo testeado ejecutando en una computadora 
 
-<p align="center"> <img src="resources/Crawler.png" width=50%/> </p>
+<p align="center"> <img src="Codigo Raspberry/pi/resources/Crawler.png" width=50%/> </p>
 
-## Table de Contenidos <img src="resources/Index.png" width=22px/> <A NAME="tabla-de-contenidos"></A>
+## Table de Contenidos <img src="Codigo Raspberry/pi/resources/Index.png" width=22px/> <A NAME="tabla-de-contenidos"></A>
 1. [Comenzando](#comenzando)
 2. [Pre-Requisitos](#pre-requisitos)
 3. [Instalación](#instalacion)
@@ -89,7 +89,7 @@ A continuación se listan los componentes con los que se deberá contar para la 
 
 Una vez obtenidos los elementos necesarios, se debe construir el Robot siguiendo el diagrama de ensamblado mostrado a continuación:
 
-<p align="center"> <img src="resources/DiagramaEnsamblado.png" width=60%/> </p>
+<p align="center"> <img src="Codigo Raspberry/pi/resources/DiagramaEnsamblado.png" width=60%/> </p>
 
 
 ### Instalación 🔧 <A NAME="instalacion"></A>
@@ -98,7 +98,8 @@ Para poder cargar el proyecto en una Raspberry Pi (o ejecutar el programa en una
 Por ejemplo, si se clona utilizando SSH:
 
 ```
-> git clone git@github.com:flemingmartin/crawler-bot.git
+> git@github.com:tpII/2022-A.1-Q-Learning.git
+
 ```
 
 Se deberá contar con el interprete de Python 3 instalado en el equipo y las librerías de este lenguaje que se listan a continuación (junto a las versiones utilizadas en este proyecto):
@@ -108,6 +109,8 @@ Se deberá contar con el interprete de Python 3 instalado en el equipo y las lib
 * SQLAlchemy:.3.13 - Es un _Object-Relational Mapper / Mapping-tool (ORM)_. Provee funciones para la creación y utilización de bases de datos sin la necesidad de usar SQL
 * Flask-SQLAlchemy:2.5.1 - Extensión para Flask que agrega compatibilidad con SQLAlchemy a la aplicación. 
 * pigpio:79 - Permite el control de los puertos de entrada/salidas de propósito general (GPIO).
+* Instalacion de libreria coverage.py
+* Instalacion del framework Open Robot
 
 Muchas de estas bibliotecas son instalables mediante el instalador de Python, utilizando la instrucción ```pip3 install```. 
 A continuación los comandos a ejecutar para la instalación:
@@ -116,6 +119,8 @@ A continuación los comandos a ejecutar para la instalación:
 > pip3 install jyserver Flask SQLAlchemy Flask-SQLAlchemy
 > sudo apt install python3-numpy    # no instalada con pip debido a problemas en la instalación detectados en el desarrollo
 > sudo apt-get install pigpio python-pigpio python3-pigpio
+> pip install robotframework
+> pip install coverage
 ```
 
 _**Aclaración**: El módulo pigpio cuenta con un demonio encargado del control de los puertos GPIO de la Raspberry Pi, la biblioteca de Python ofrece comunicación con dicho demonio. 
@@ -125,6 +130,8 @@ Para ello, se debe agregar en el archivo **/etc/rc.local** las siguientes instru
 pigpiod   # Inicialización del demonio pigpio
 su pi -c 'python3 app.py' # Ejecución del programa principal, éste levanta el servidor Flask
 ```
+
+
 
 ## Ejecución 🤖 <A NAME="ejecucion"></A>
 
@@ -150,26 +157,26 @@ o ```_dev = True``` si se desea levantar el servidor en la red local a la que se
 ### Interfaz Web 💻 <A NAME="interfaz-web"></A>
 
 La aplicación cuenta con una interfaz web, desde la cual es posible ejecutar las tareas que el Crawler puede realizar: Caminar (mediante el botón _Avanzar_) y Aprender a caminar (mediante el botón _Entrenar_).
-<p align="center"> <img src="resources/interfaz.png" width=70%/> </p>
+<p align="center"> <img src="Codigo Raspberry/pi/resources/interfaz.png" width=70%/> </p>
 
 A medida que el robot ejecuta su entrenamiento, se pueden visualizar tanto los cambios realizados en la Tabla Q, como el estado en el que el robot se encuentra (representado por el punto rojo de la tabla). 
 Mientras que durante la caminata, se puede ver cómo se realizan los cambios de estado en función de los valores de la tabla con mayor recompensa entrenada.
-<p align="center"> <img src="resources/interfaz_movimiento.png" width=70%/> </p>
+<p align="center"> <img src="Codigo Raspberry/pi/resources/interfaz_movimiento.png" width=70%/> </p>
 
 Además, la interfaz permite actualizar los parámetros de entrenamiento, mediante un menú de configuración.
-<p align="center"> <img src="resources/interfaz_menu.png" width=70%/> </p>
+<p align="center"> <img src="Codigo Raspberry/pi/resources/interfaz_menu.png" width=70%/> </p>
 
 
 ### Robot en Funcionamiento 💪 <A NAME="robot-en-funcionamiento"></A>
 
 **Crawler Aprendiendo a Caminar**: En el siguiente video se puede observar al robot realizando una exploración de los movimientos disponibles, siguiendo la ejecución del algoritmo de aprendizaje reforzado Q-Learning. De esta manera, va actualizando los pesos de la Tabla Q en función de la obtención de recompensas (provenientes de la lectura de los encoders).
 
-<p align="center"> <img src="resources/entrenando.gif" width=60%/> </p>
+<p align="center"> <img src="Codigo Raspberry/pi/resources/entrenando.gif" width=60%/> </p>
 
 
 **Crawler Caminando**: A continuación se puede observar la manera en el que robot puede desplazarse utilizando su brazo, una vez que ya ha sido entrenado. Para ello, utiliza los valores de la Tabla Q que indicará cuáles son las acciones que deberá hacer en cada momento para cumplir con su objetivo.
 
-<p align="center"> <img src="resources/caminando.gif" width=60%/> </p>
+<p align="center"> <img src="Codigo Raspberry/pi/resources/caminando.gif" width=60%/> </p>
 
 ## Herramientas 🛠️ <A NAME="herramientas"></A>
 
@@ -199,7 +206,7 @@ Usamos [SemVer](http://semver.org/) para el versionado. Para todas las versiones
 ## Autores ✒️ <A NAME="autores"></A>
 
 * **Belloso, Mateo** - [GitHub](https://github.com/mateobelloso)
-* **Cervellin, Nicolas** - [GitLab](https://github.com/Nicocerve)
+* **Cervellin, Nicolas** - [GitHub](https://github.com/Nicocerve)
 
 
 <!-- ## Licencia 📄
