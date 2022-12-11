@@ -206,7 +206,7 @@ Usamos [SemVer](http://semver.org/) para el versionado. Para todas las versiones
 ## Autores ✒️ <A NAME="autores"></A>
 
 * **Belloso, Mateo** - [GitHub](https://github.com/mateobelloso)
-* **Cervellin, Nicolas** - [GitLab](https://github.com/Nicocerve)
+* **Cervellin, Nicolas** - [GitHub](https://github.com/Nicocerve)
 
 
 <!-- ## Licencia 📄
