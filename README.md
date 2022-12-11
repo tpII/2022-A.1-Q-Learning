@@ -98,7 +98,8 @@ Para poder cargar el proyecto en una Raspberry Pi (o ejecutar el programa en una
 Por ejemplo, si se clona utilizando SSH:
 
 ```
-> git clone git@github.com:flemingmartin/crawler-bot.git
+> git@github.com:tpII/2022-A.1-Q-Learning.git
+
 ```
 
 Se deberá contar con el interprete de Python 3 instalado en el equipo y las librerías de este lenguaje que se listan a continuación (junto a las versiones utilizadas en este proyecto):
@@ -108,6 +109,8 @@ Se deberá contar con el interprete de Python 3 instalado en el equipo y las lib
 * SQLAlchemy:.3.13 - Es un _Object-Relational Mapper / Mapping-tool (ORM)_. Provee funciones para la creación y utilización de bases de datos sin la necesidad de usar SQL
 * Flask-SQLAlchemy:2.5.1 - Extensión para Flask que agrega compatibilidad con SQLAlchemy a la aplicación. 
 * pigpio:79 - Permite el control de los puertos de entrada/salidas de propósito general (GPIO).
+* Instalacion de libreria coverage.py
+* Instalacion del framework Open Robot
 
 Muchas de estas bibliotecas son instalables mediante el instalador de Python, utilizando la instrucción ```pip3 install```. 
 A continuación los comandos a ejecutar para la instalación:
@@ -116,6 +119,8 @@ A continuación los comandos a ejecutar para la instalación:
 > pip3 install jyserver Flask SQLAlchemy Flask-SQLAlchemy
 > sudo apt install python3-numpy    # no instalada con pip debido a problemas en la instalación detectados en el desarrollo
 > sudo apt-get install pigpio python-pigpio python3-pigpio
+> pip install robotframework
+> pip install coverage
 ```
 
 _**Aclaración**: El módulo pigpio cuenta con un demonio encargado del control de los puertos GPIO de la Raspberry Pi, la biblioteca de Python ofrece comunicación con dicho demonio. 
@@ -125,6 +130,8 @@ Para ello, se debe agregar en el archivo **/etc/rc.local** las siguientes instru
 pigpiod   # Inicialización del demonio pigpio
 su pi -c 'python3 app.py' # Ejecución del programa principal, éste levanta el servidor Flask
 ```
+
+
 
 ## Ejecución 🤖 <A NAME="ejecucion"></A>
 
